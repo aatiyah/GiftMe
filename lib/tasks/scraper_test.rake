@@ -5,7 +5,7 @@ namespace :scraper_test do
   desc "TODO"
   task scrap: :environment do
   	# the url we want to scrape
-      url = "http://www.amazon.com/s/ref=lp_2619525011_nr_n_5?fst=as%3Aoff&rh=n%3A2619525011%2Cn%3A%212619526011%2Cn%3A2686328011&bbn=2619526011&ie=UTF8&qid=1462292509&rnid=2619526011"
+      url = "http://www1.macys.com/shop/womens-clothing/dresses?id=5449&edge=hybrid"
       # get the raw HTML content
       response = HTTParty.get url
       html = response.body
