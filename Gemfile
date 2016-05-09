@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+#https://github.com/mikel/mail
+gem 'has_friendship'
 gem 'httparty'
 gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

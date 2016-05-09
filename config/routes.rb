@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :wishlists
   get 'test/welcome'
-
   get 'test/profile'
 
   devise_for :users
