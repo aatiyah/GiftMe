@@ -129,9 +129,6 @@ Product.create!([
 {:title=>"Betsey Johnson Polka Dot Racerfront Sports Bra", :price=>24.99, :category_id=>3, :img_url=>"http://slimages.macysassets.com/is/image/MCY/products/6/optimized/3424236_fpx.tif?bgc=255,255,255&wid=170&qlt=90,0&layer=comp&op_sharpen=0&resMode=bicub&op_usm=0.7,1.0,0.5,0&fmt=jpeg"}
 {:title=>"Ideology Sweeping Dot T-Shirt", :price=>16.99, :category_id=>3, :img_url=>"http://slimages.macysassets.com/is/image/MCY/products/6/optimized/3287986_fpx.tif?bgc=255,255,255&wid=170&qlt=90,0&layer=comp&op_sharpen=0&resMode=bicub&op_usm=0.7,1.0,0.5,0&fmt=jpeg"}
 {:title=>"Ideology Graphic T-Shirt", :price=>16.99, :category_id=>3, :img_url=>"http://slimages.macysassets.com/is/image/MCY/products/2/optimized/3396232_fpx.tif?bgc=255,255,255&wid=170&qlt=90,0&layer=comp&op_sharpen=0&resMode=bicub&op_usm=0.7,1.0,0.5,0&fmt=jpeg"}
-])
-
-Product.create!([
 {:title=>"Grand Theft Auto V - PRE-OWNED - Xbox One", :price=>49.99, :category_id=>1, :img_url=>"http://pisces.bbystatic.com/image2/BestBuy_US/images/products/1454/1454265_sa.jpg;canvasHeight=145;canvasWidth=222"}
 {:title=>"Grand Theft Auto V - PRE-OWNED - PlayStation 4", :price=>49.99, :category_id=>1, :img_url=>"http://pisces.bbystatic.com/image2/BestBuy_US/images/products/1422/1422002_sa.jpg;canvasHeight=145;canvasWidth=222"}
 {:title=>"Grand Theft Auto V - PRE-OWNED - PlayStation 3", :price=>19.99, :category_id=>1, :img_url=>"http://pisces.bbystatic.com/image2/BestBuy_US/images/products/1766/1766031_sa.jpg;canvasHeight=145;canvasWidth=222"}
