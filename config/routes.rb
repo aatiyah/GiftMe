@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   get 'test/profile'
 
-  get 'products' => "products#list"
-  get 'products/:category_name' => "products#index"
-  get 'products/:category_name/:id' => "products#show", as: :item
+  get 'products' => "products#index"
+  get 'products/:category' => "categories#index", as: :category
+  get 'products/:category/:id' => "products#show", as: :product
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

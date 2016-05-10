@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
 
 
 	def show
-		@product = Product.find(params[:id])
+		@category = Category.where(:slug=> params[:category]).take
+		@product = @category.products.find(params[:id])
 	end
 
 	private
