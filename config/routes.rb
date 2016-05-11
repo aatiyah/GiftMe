@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :events
-  get 'test/welcome'
+  root "test#welcome"
 
-  get 'test/profile'
+  get 'profile' => "test#profile"
 
   get 'products' => "products#index"
   get 'products/:category' => "categories#index", as: :category
