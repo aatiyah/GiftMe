@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :events
-  root "test#welcome"
-
+  
+  root "test#welcome", as: :test
   get 'profile' => "test#profile"
 
   get 'products' => "products#index"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
-
+  resources :events
+  
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
