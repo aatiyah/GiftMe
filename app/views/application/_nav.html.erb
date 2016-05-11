@@ -1,7 +1,7 @@
-<li><%= link_to 'Home', test_welcome_path%></li>
+<li><%= link_to 'Home', test_path%></li>
 
 <% if user_signed_in? %>
-  <li><%=link_to "My Profile", test_profile_path %></li>
+  <li><%=link_to "My Profile", profile_path %></li>
   <li><%= link_to "Log Out", destroy_user_session_path, method: :delete%></li>
 <% else %>
   <li><%= link_to "Sign Up", new_user_registration_path %></li>
