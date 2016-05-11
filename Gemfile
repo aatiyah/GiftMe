@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 #https://github.com/mikel/mail
-gem 'has_friendship'
+gem 'has_friendship', '0.1.3'
 gem 'httparty'
 gem 'nokogiri'
 gem 'pg'

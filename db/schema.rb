@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509201336) do
+ActiveRecord::Schema.define(version: 20160510164714) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160509201336) do
     t.string   "title"
     t.integer  "price"
     t.text     "info"
+    t.boolean   "dibCheck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

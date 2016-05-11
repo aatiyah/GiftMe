@@ -1,0 +1,32 @@
+
+<div class="search-wrapper card">
+	<form>
+		<div class="input-field">
+		<input id="search" type="search" required>
+		<label for="search"><i class="material-icons">search</i></label>
+		<i class="material-icons">close</i>
+		</div>
+	</form>
+
+</div>
+<h1>StaticPages#friend</h1>
+<p>Find me in app/views/static_pages/friend.html.erb</p>
+<h1> Welcome <%=current_user.email %> </h1>
+
+	    </div>
+	    <br><br>
+
+<% @users.each do |user| %>
+    <li>
+        <%=  user.email %>
+    </li>
+<% end %>
+
+
+      <div class ="wishlist_link">
+        <h5>This page will be in charge of listing all of the users</h5>
+      </div>
+
+	    <div class="section">
+	</div>
+</div>
