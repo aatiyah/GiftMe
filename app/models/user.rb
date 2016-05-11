@@ -7,4 +7,3 @@ class User < ActiveRecord::Base
     end
 	has_many :events         
 end
-
