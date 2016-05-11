@@ -2,12 +2,17 @@ source 'https://rubygems.org'
 
 
 #https://github.com/mikel/mail
-gem 'has_friendship', '0.1.3'
+
+gem 'will_paginate', '~> 3.1.0'
 gem 'httparty'
 gem 'nokogiri'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
+# Use sqlite3 as the database for Active Record
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +49,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
 
@@ -53,3 +59,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'materialize-sass'
+
+
+gem 'pg'
+
+gem 'rails_12factor', group: :production
+
+

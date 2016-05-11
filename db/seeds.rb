@@ -3,7 +3,7 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([{ name: 'Chicago' },, { name: 'Copenhagen' },])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
@@ -224,9 +224,23 @@ Product.create!([
 {:title=>"HP - ENVY m6-p114dx 15.6\" Touch-Screen Laptop - AMD FX - 6GB Memory - 1TB Hard Drive - Natural silver", :price=>509.99, :category_id=>1, :img_url=>"http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4864/4864900_sa.jpg;canvasHeight=145;canvasWidth=222"}
 ])
 
+
 User.create!([
 	{ :email=>"googlethis@gmail.com",:password=> "1234567"},
 	{ :email=>"googlethat@gmail.com",:password=> "1234567"},
 	{ :email=>"frank@gmail.com",:password=> "1234567"},
-	{ :email=>"bob@gmail.com",:password=> "1234567"}
+	{ :email=>"bob@gmail.com",:password=> "1234567"},
+	{email: "lin.yang@utexas.edu", password:"1234567890"}	
 	])
+
+Category.create!([
+	{name: "Electronics", slug: "electronics"},
+	{name: "Toys", slug: "toys"},
+	{name: "Clothing", slug: "clothing"}
+	])
+
+	
+
+# Ref: http://stackoverflow.com/questions/8203379/how-to-populate-some-default-users-in-devise
+# "As Devise runs its internal methods, like, 'generating encrypted password from password', after 'new' is called on User."
+

@@ -12,11 +12,34 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 //= require jquery
 //= require materialize-sprockets
 
 // Initialize collapse button
+
+$( document ).ready(function(){
+	$(".button-collapse").sideNav();
+    $('.slider').slider({full_width: true});
+    // Pause slider
+	$('.slider').slider('pause');
+	// Start slider
+	$('.slider').slider('start');
+	// Next slide
+	$('.slider').slider('next');
+	// Previous slide
+	$('.slider').slider('prev');
+	$('.carousel').carousel();
+	// Next slide
+	$('.carousel').carousel('next');
+	$('.carousel').carousel('next', [3]); // Move next n times.
+	// Previous slide
+	$('.carousel').carousel('prev');
+	$('.carousel').carousel('prev', [4]); // Move prev n times.
+	$('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+});
 

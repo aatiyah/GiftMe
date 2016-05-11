@@ -17,6 +17,17 @@ ActiveRecord::Schema.define(version: 20160510164714) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.boolean  "annual",     default: false
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "friendships", force: :cascade do |t|
