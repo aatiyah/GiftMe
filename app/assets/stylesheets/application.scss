@@ -19,4 +19,13 @@ $primary-color: color("blue", "lighten-2") !default;
  *= require_self
  */
 
+.picker__date-display {
+	background-color: #64B5F6;
+}
 
+.picker__weekday-display {
+	background-color: #64B5F6;
+}
+.picker__day.picker__day--today, .picker__close, .picker__today {
+	color: #64B5F6;
+}
