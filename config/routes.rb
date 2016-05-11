@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :friendships
   get 'static_pages/friend'
 
   resources :events
