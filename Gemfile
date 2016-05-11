@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 
+
+#https://github.com/mikel/mail
+
 gem 'will_paginate', '~> 3.1.0'
 gem 'httparty'
 gem 'nokogiri'
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
 # Use sqlite3 as the database for Active Record
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -37,6 +43,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+	gem 'sqlite3'
 end
 
 group :development do
@@ -56,5 +64,5 @@ gem 'materialize-sass'
 gem 'pg'
 
 gem 'rails_12factor', group: :production
-#test
+
 

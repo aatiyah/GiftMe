@@ -225,16 +225,22 @@ Product.create!([
 ])
 
 
+User.create!([
+	{ :email=>"googlethis@gmail.com",:password=> "1234567"},
+	{ :email=>"googlethat@gmail.com",:password=> "1234567"},
+	{ :email=>"frank@gmail.com",:password=> "1234567"},
+	{ :email=>"bob@gmail.com",:password=> "1234567"},
+	{email: "lin.yang@utexas.edu", password:"1234567890"}	
+	])
+
 Category.create!([
 	{name: "Electronics", slug: "electronics"},
 	{name: "Toys", slug: "toys"},
 	{name: "Clothing", slug: "clothing"}
 	])
 
-
-User.create!([
-	{email: "lin.yang@utexas.edu", password:"1234567890"}
-		])	
+	
 
 # Ref: http://stackoverflow.com/questions/8203379/how-to-populate-some-default-users-in-devise
 # "As Devise runs its internal methods, like, 'generating encrypted password from password', after 'new' is called on User."
+
