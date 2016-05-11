@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20160510164714) do
     t.string   "title"
     t.integer  "price"
     t.text     "info"
-    t.boolean   "dibCheck"
+    t.boolean  "dibCheck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

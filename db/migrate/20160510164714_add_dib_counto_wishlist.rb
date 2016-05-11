@@ -1,5 +1,5 @@
 class AddDibCountoWishlist < ActiveRecord::Migration
   def change
-  	add_column :dibCheck
+  	add_column :wishlist, :dibcheck, :boolean
   end
 end

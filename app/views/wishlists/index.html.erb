@@ -19,7 +19,7 @@
         <td><%= wishlist.title %></td>
         <td><%= wishlist.price %></td>
         <td><%= wishlist.info %></td>
-        <td><%= wishlist.dibCheck %></td>
+        <td><%= wishlist.dibCheck %> </td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,6 +29,8 @@
 </table>
 
 <br>
+
+<%= submit_tag "DIBS!" %>
 
 <%= link_to 'New Wishlist', new_wishlist_path %>
 <br/>
