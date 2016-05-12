@@ -4,9 +4,13 @@
 
 
 <% @users.each do |user| %>
-    <p><%= user.email %></p>
     <% unless current_user == user %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
+    	<p><%= user.email %></p>
+    	<% if (current_user.friendships.find_by_user_id(user.id).nil? && current_user.friendships.find_by_friend_id(user.id).nil?) %>
+        	<%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
+        <% else %>
+        	<p>You are already friends!</p>
+        <% end %>
     <% end %>
 <% end %>
 
