@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :friendships
   # for root page & user profile
   root "test#welcome", as: :test
   get 'profile' => "test#profile"
