@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
 
-  resources :friendships
+  # for root page & user profile
+  root "test#welcome"
+  get 'profile' => "test#profile"
+
+  # for list of friends
   get 'static_pages/friend'
 
-  resources :events
-  get 'test/welcome'
-
-  resources :wishlists
-  get 'test/profile'
-
+  # for products pages
   get 'products' => "products#index"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
-
+  resources :events
+  resources :wishlists
+  resources :friendships
   devise_for :users
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

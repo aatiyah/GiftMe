@@ -1,12 +1,5 @@
-<div class="search-wrapper card">
-	<form>
-		<div class="input-field">
-		<input id="search" type="search" required>
-		<label for="search"><i class="material-icons">search</i></label>
-		<i class="material-icons">close</i>
-		</div>
-	</form>
-
+<div class="create_event">
+  <%= link_to 'Show/Create Personal Events', events_path %>
 </div>
 <h1> Welcome <%=current_user.email %> </h1>
 <div class="carousel">
@@ -53,8 +46,13 @@
 	    </div>
 	    <br><br>
 
+
+
       <div class ="wishlist_link">
         <h5>go to your wishlist page <%= link_to "Wishlist", wishlists_path %> Here </a>NOW!</h5>
+      </div>
+      <div class ="Friend_link">
+        <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here </a>NOW!</h5>
       </div>
 
 

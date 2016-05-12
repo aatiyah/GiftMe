@@ -19,6 +19,11 @@ $primary-color: color("blue", "lighten-2") !default;
  *= require_self
  */
 
+.nav-wrapper img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
 .picker__date-display {
 	background-color: #64B5F6;
 }
@@ -26,6 +31,17 @@ $primary-color: color("blue", "lighten-2") !default;
 .picker__weekday-display {
 	background-color: #64B5F6;
 }
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+	background-color: #64B5F6;
+}
+
 .picker__day.picker__day--today, .picker__close, .picker__today {
 	color: #64B5F6;
 }
+
+[type="checkbox"]:checked + label:before {
+	border-right: 2px solid #64B5F6;
+    border-bottom: 2px solid #64B5F6;
+}
+

@@ -3,8 +3,11 @@ class FriendshipsController < ApplicationController
 
   # GET /friendships
   # GET /friendships.json
+
+
+
   def index
-    @friendships = Friendship.all
+    @friendships = User.all
   end
 
   # GET /friendships/1
@@ -24,13 +27,15 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
-
+    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     respond_to do |format|
       if @friendship.save
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
+        flash[:notice] = "Friend being followed."
+        #redirect_to 
+        format.html { redirect_to friendships_url, notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
       else
+        flash[:notice] = "Error"
         format.html { render :new }
         format.json { render json: @friendship.errors, status: :unprocessable_entity }
       end
@@ -54,9 +59,10 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
+    @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
     respond_to do |format|
-      format.html { redirect_to friendships_url, notice: 'Friendship was successfully destroyed.' }
+      format.html { redirect_to friendships_url, notice: 'DESTROYED FRIENDSHIP FOREVER!!!!(not really).' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Friendships</h1>
+<h1>Listing Users</h1>
+
+
+  <% @friendships.each do |user| %>
+          <% if current_user.email  == user.email %>
+          <% else %>
+            <li>
+            <%= user.email %>
+            <%= link_to "Follow Friend", friendships_path(:friend_id =>user), :method => :post%>
+            </li>
+          <% end %>
+  <% end %>
+
+
+  <h2>Friends Following</h2>
+    <ul>
+      <% current_user.friendships.each do |friendship| %>
+         <li> <%=friendship.friend.email%>(<%= link_to "remove", friendship, :method => :delete %>) </li>
+        <% end %>
+    </ul>
+
+    <h2> Followers </h2>
+      <ul>
+        <% current_user.inverse_friendships.each do |friendship| %>
+          <li> <%= friendship.user.email %> </li>
+          <% end %>
+      </ul>
+
+
+<%if false %>
+<!--
 
 <table>
   <thead>
@@ -31,3 +61,5 @@
 <br>
 
 <%= link_to 'New Friendship', new_friendship_path %>
+-->
+<%end %>
