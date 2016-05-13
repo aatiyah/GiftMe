@@ -9,11 +9,11 @@
 	<% if user != current_user %>
 		<p><%=user.email%></p>
 		<% if not Friendship.exist?(current_user,user)%>
-			<%= link_to "Send Friend Request", friendships_path(friend_id: user.id),:method=>:post %>
+			<%= link_to "Send Friend Request", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
 		<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
 			<p>You have a friend request from <%=user.email%>.</p>
 			<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put %>
-			<%=link_to "Decline", friends_path(friend_id:user.id), :method => :delete %>
+			<%=link_to "Decline", friends_path(friend_id:user.id), :method => :delete, data: { confirm: "Are you sure?" } %>
 		<% elsif not current_user.pending_friends.where(id:user.id).empty? %>
 			<p>The friend request is pending.</p>
 		<% else %>
