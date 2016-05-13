@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'friendships' => "friendships#index"
+  get 'friends' => "friendships#show"
+  post 'friendships' => "friendships#create"
+  put 'friends' => "friendships#update"
+  delete 'friends' => "friendships#destroy"
+
   # for root page & user profile
   root "test#welcome", as: :test
   get 'profile' => "test#profile"
