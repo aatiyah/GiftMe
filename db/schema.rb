@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511005343) do
+ActiveRecord::Schema.define(version: 20160512133140) do
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -30,13 +31,11 @@ ActiveRecord::Schema.define(version: 20160511005343) do
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer  "friendable_id"
-    t.string   "friendable_type"
+    t.integer  "user_id"
     t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "blocker_id"
-    t.integer  "status"
+    t.boolean  "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -70,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160511005343) do
     t.string   "title"
     t.integer  "price"
     t.text     "info"
-    t.boolean  "dibCheck"
+    t.boolean  "dibcheck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
