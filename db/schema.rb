@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20160512141118) do
     t.text     "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "dibcheck"
+    t.boolean  "dibcheck",    default: false
   end
 
 end
