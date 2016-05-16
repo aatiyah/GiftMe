@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 gem 'will_paginate', '~> 3.1.0'
 gem 'httparty'
 gem 'nokogiri'
-gem 'pg'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 

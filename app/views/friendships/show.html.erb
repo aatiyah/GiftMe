@@ -1,30 +1,4 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<h4>Friends</h4>
-
-<ul>
-	<% current_user.friends.each do |friend| %>
-	  <li>
-	    <%= friend.email %> 
-	    <%= link_to "Remove", friendship_path(:id => friend), :method => :delete %>
-	  </li>
-	<% end %>
-</ul>
-
-<h4>Friend Requests</h4>
-<ul>
-    <% current_user.requested_friendships.each do |request| %>
-    <li>
-      <%= request.email %> 
-      <%= link_to "Accept", friendship_path(:id => request.id), :method => "put" %> 
-      <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
-      
-    </li>
-    <% end %>
-</ul>
-=======
- <% if flash[:notice] %>
+<% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
  <% end %>
 
@@ -48,5 +22,4 @@
 <% current_user.pending_friends.each do |friend|%>
 	<p><%=friend.email%></p>
 <% end %>
->>>>>>> mutual_friendship
 

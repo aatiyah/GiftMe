@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160512133140) do
-=======
-ActiveRecord::Schema.define(version: 20160512233156) do
->>>>>>> mutual_friendship
-=======
+
 ActiveRecord::Schema.define(version: 20160516150450) do
->>>>>>> profile_edit
+
+
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -41,16 +36,10 @@ ActiveRecord::Schema.define(version: 20160516150450) do
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
-<<<<<<< HEAD
-    t.boolean  "approved"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
     t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "accepted_at"
     t.datetime "updated_at",  null: false
->>>>>>> mutual_friendship
   end
 
   create_table "products", force: :cascade do |t|
@@ -90,10 +79,7 @@ ActiveRecord::Schema.define(version: 20160516150450) do
     t.integer  "price"
     t.text     "info"
     t.boolean  "dibcheck"
-<<<<<<< HEAD
-=======
     t.integer  "user_id"
->>>>>>> profile_edit
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

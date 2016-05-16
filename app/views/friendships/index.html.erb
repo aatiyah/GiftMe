@@ -1,24 +1,6 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<h1>Users List</h1>
-
-
-<% @users.each do |user| %>
-    <% unless current_user == user %>
-    	<p><%= user.email %></p>
-    	<% if (current_user.friendships.find_by_user_id(user.id).nil? && current_user.friendships.find_by_friend_id(user.id).nil?) %>
-        	<%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
-        <% else %>
-        	<p>You are already friends!</p>
-        <% end %>
-    <% end %>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-
-=======
- <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
- <% end %>
 
 <h1>Lists of User</h1>
 
@@ -39,4 +21,3 @@
 		<% end %>
 	<% end %>
 <% end %>
->>>>>>> mutual_friendship

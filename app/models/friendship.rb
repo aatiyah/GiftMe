@@ -1,8 +1,5 @@
 class Friendship < ActiveRecord::Base
 	belongs_to :user
-<<<<<<< HEAD
-    belongs_to :friend, :class_name => "User"
-=======
 	belongs_to :friend, class_name:"User", foreign_key: "friend_id"
 
 	validates :user_id, :friend_id, :status, presence: true
@@ -47,5 +44,5 @@ class Friendship < ActiveRecord::Base
 		request.update(status:"accepted", accepted_at:accepted_at)
 		request.save!
 	end
->>>>>>> mutual_friendship
+
 end

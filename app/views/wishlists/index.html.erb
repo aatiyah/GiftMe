@@ -1,6 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Wishlists page</h1>
+<!-- https://jqueryui.com/sortable/ for organizing by importance? -->
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness.jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function(){
+      $("#sortable").sortable();
+      $("#sortable").disableSelection();
+    });
+    </script>
+
+ <!-- Dropdown Trigger -->
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Select User</a>
+<!-- http://jsfiddle.net/Chran/1/ should be able to apply principles to table  and this to fill the drop down with the users name http://stackoverflow.com/questions/17664495/how-loop-through-array-in-jquery-and-append-the-values-in-the-array-inside-an-li and this hiding trick for once I have listed the different user id's next to the wishlist, it will remove those without the proper id http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_hide_show -->
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+  <script src="jquery-1.12.2.min.js">
+  jQuery.each(@user.email, function(i,val){
+    $('<li>').insertAfter('ul#state-list li:nth-child (' + val + ')');
+    });
+    </script>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
 
 <table>
   <thead>
@@ -12,6 +38,15 @@
       <th colspan="4"></th>
     </tr>
   </thead>
+Demo section for organizing by order
+    <ul id="sortable">
+          <li class = "ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">word1</span>
+           </li>
+          <li class = "ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">word2</span>
+           </li>
+          <li class = "ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">word3</span>
+           </li>
+    </ul>
 
   <tbody>
     <% @wishlists.each do |wishlist| %>
@@ -19,7 +54,15 @@
         <td><%= wishlist.title %></td>
         <td><%= wishlist.price %></td>
         <td><%= wishlist.info %></td>
-        <td><%= wishlist.dibCheck %> </td>
+        <td>   <%= wishlist.dibcheck  %><!-- I took out the top part of the form page, removed the errors, 
+used this website for guidance when I was getting this error..
+http://stackoverflow.com/questions/18853721/first-argument-in-form-cannot-contain-nil-or-be-empty-rails-4 ... and put inside table to make the move  and it still only moves for one... -->
+<%= form_for @wishlists.new do |f| %>
+            <div class="field">
+              <%= f.check_box :dibcheck %>
+              <%= f.label :dibcheck %><br>
+            </div>
+<% end %></td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,9 +72,9 @@
 </table>
 
 <br>
-
-<%= submit_tag "DIBS!" %>
+<a class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></a>
 
 <%= link_to 'New Wishlist', new_wishlist_path %>
 <br/>
-<%= link_to 'Profile', profile_path %>
+
+        
