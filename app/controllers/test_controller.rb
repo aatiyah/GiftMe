@@ -4,4 +4,7 @@ class TestController < ApplicationController
 
   def profile
   end
+
+  def home
+  end
 end

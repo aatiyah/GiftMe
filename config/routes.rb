@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   delete 'friends' => "friendships#destroy"
 
   # for root page & user profile
-  root "test#welcome", as: :test
-  get 'profile' => "test#profile"
+  root "test#welcome"
+  get 'profile/:id' => "test#profile", as: :profile
 
   # for list of friends
   get 'static_pages/friend'
@@ -17,8 +17,12 @@ Rails.application.routes.draw do
   get 'products' => "products#index"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
+  
   resources :events
   resources :wishlists
+
+  # get events for individual users
+  get ':id/events' => "events#user_index", as: :user_event
   
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
