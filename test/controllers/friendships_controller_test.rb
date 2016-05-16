@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class FriendshipsControllerTest < ActionController::TestCase
+<<<<<<< HEAD
   setup do
     @friendship = friendships(:one)
   end
@@ -46,4 +47,16 @@ class FriendshipsControllerTest < ActionController::TestCase
 
     assert_redirected_to friendships_path
   end
+=======
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
+
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+
+>>>>>>> mutual_friendship
 end
