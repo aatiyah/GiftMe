@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
 >>>>>>> mutual_friendship
   # for root page & user profile
-  root "test#welcome", as: :test
-  get 'profile' => "test#profile"
+  root "test#welcome"
+  get 'profile/:id' => "test#profile", as: :profile
 
   # for list of friends
   get 'friends' => "friendships#show"
@@ -21,11 +21,21 @@ Rails.application.routes.draw do
   get 'products' => "products#index"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
+<<<<<<< HEAD
 
   resources :events
   resources :wishlists
   resources :friendships, :only => [:index, :create, :update, :destroy]
 
+=======
+  
+  resources :events
+  resources :wishlists
+
+  # get events for individual users
+  get ':id/events' => "events#user_index", as: :user_event
+  
+>>>>>>> profile_edit
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

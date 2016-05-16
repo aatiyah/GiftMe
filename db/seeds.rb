@@ -226,11 +226,11 @@ Product.create!([
 
 
 User.create!([
-	{ :email=>"googlethis@gmail.com",:password=> "1234567"},
-	{ :email=>"googlethat@gmail.com",:password=> "1234567"},
-	{ :email=>"frank@gmail.com",:password=> "1234567"},
-	{ :email=>"bob@gmail.com",:password=> "1234567"},
-	{email: "lin.yang@utexas.edu", password:"1234567890"}	
+	{email: "googlethis@gmail.com", password:"1234567", username:"googlethis",avatar_img:"avatar/cashier.png", birthday: Date.new(1990,3,1)},
+	{email: "googlethat@gmail.com", password:"1234567", username:"googlethat",avatar_img:"avatar/cooker.png", birthday: Date.new(2010,3,1)},
+	{email: "frank@gmail.com", password:"1234567", username:"frank",avatar_img:"avatar/detective.png", birthday: Date.new(1998,3,1)},
+	{email: "bob@gmail.com", password:"1234567", username:"bob",avatar_img:"avatar/diver.png", birthday: Date.new(1992,3,1)},
+	{email: "foo@gmail.com", password:"1234567", username:"foo",avatar_img:"avatar/dj.png", birthday: Date.new(1995,3,1)}
 	])
 
 Category.create!([
@@ -239,6 +239,21 @@ Category.create!([
 	{name: "Clothing", slug: "clothing"}
 	])
 
+Event.create!([
+	{title:"Wedding", date: Date.new(2002,1,1), annual: true, user_id:1},
+	{title:"Baby Shower", date: Date.new(2001,1,1), annual: false, user_id:2},
+	{title:"First Date", date: Date.new(2000,1,1), annual: true, user_id:3},
+	{title:"Achievement Day", date: Date.new(2009,1,1), annual: false, user_id:4},
+	{title:"Dad's birthday", date: Date.new(1992,1,1), annual: true, user_id:5}
+	])
+
+Wishlist.create!([
+	{title:"Cole Hann Wedge Shoe", info: "Nice pair of shoe", user_id:1},
+	{title:"Kindle Oasis", info: "High-end E-reader", user_id:2},
+	{title:"Captain American Funko Figure", info: "That is American Captain!!", user_id:3},
+	{title:"X-box", info: "Who does not want a X-box", user_id:4},
+	{title:"hat", info: "need a nice hat", user_id:5}
+	])
 	
 
 # Ref: http://stackoverflow.com/questions/8203379/how-to-populate-some-default-users-in-devise
