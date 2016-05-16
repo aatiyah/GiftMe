@@ -12,14 +12,21 @@
         <span class="black-text">
           <p><%= user.username %></p>
           <p><%= user.birthday%></p>
+          <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
+            <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+          <%end%>
         </span>
       </div>
 
     </div>
   </div>
 </div>
+
+<div class="friends">
+  <%= link_to 'Friends', friend_path(user.id)%>
+</div>
   
-<div class="create_event">
+<div class="events">
   <%= link_to 'Events', user_event_path(user.id) %>
 </div>
 

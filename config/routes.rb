@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # mutual friendship routes
   get 'friendships' => "friendships#index"
-  get 'friends' => "friendships#show"
+  get ':id/friends' => "friendships#show", as: :friend
   post 'friendships' => "friendships#create"
   put 'friends' => "friendships#update"
   delete 'friends' => "friendships#destroy"
