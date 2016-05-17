@@ -1,24 +1,49 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+ <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @friendship.user_id %>
-</p>
+<h1><%=@user.username%>'s Friends</h1>
 
-<p>
-  <strong>Friend:</strong>
-  <%= @friendship.friend_id %>
-</p>
+<% @user.friends.each do |friend|%>
+	<div class="col s12 m8 offset-m2 l6 offset-l3">
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<div class="row valign-wrapper">
 
-<p>
-  <strong>Create:</strong>
-  <%= @friendship.create %>
-</p>
+				<div class="col s2">
+					<%=image_tag(friend.avatar_img, class:"circle responsive-img")%> 
+				</div>
 
-<p>
-  <strong>Destroy:</strong>
-  <%= @friendship.destroy %>
-</p>
+				<div class="col s10">
+					<span class="black-text">
+						<p><%= friend.username %></p>
+						<p><%= friend.birthday%></p>
+						<% if @user == current_user %>
+							<%=link_to "Remove", friends_path(friend_id:friend.id), :method => :delete%>
+						<% elsif current_user != friend && (not Friendship.exist?(current_user,friend))%>
+							<%= link_to "Send Friend Request", friendships_path(friend_id: friend.id),:method=>:post, data: { confirm: "Are you sure?" } %>
+						<% end %>
+					</span>
+				</div>
 
-<%= link_to 'Edit', edit_friendship_path(@friendship) %> |
-<%= link_to 'Back', friendships_path %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+
+<%if @user == current_user %>
+	<h4><%=current_user.requested_friends.length%> Friend Request</h4>
+	<% current_user.requested_friends.each do |friend|%>
+		<p><%=friend.email%></p>
+		<%=link_to "Accept", friends_path(friend_id:friend.id), :method => :put %>
+		<%=link_to "Decline", friends_path(friend_id:friend.id), :method => :delete %>
+	<% end %>
+
+
+	<h4><%=current_user.pending_friends.length%> Pending Friend Request</h4>
+	<% current_user.pending_friends.each do |friend|%>
+		<p><%=friend.email%></p>
+	<% end %>
+<% end %>
+
+<%=link_to "Find Friends", friendships_path %>

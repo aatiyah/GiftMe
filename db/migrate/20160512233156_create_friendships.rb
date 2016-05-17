@@ -3,8 +3,9 @@ class CreateFriendships < ActiveRecord::Migration
     create_table :friendships do |t|
       t.integer :user_id
       t.integer :friend_id
-      t.string :create
-      t.string :destroy
+      t.string :status
+      t.datetime :created_at
+      t.datetime :accepted_at
 
       t.timestamps null: false
     end

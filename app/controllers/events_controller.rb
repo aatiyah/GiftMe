@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+
+  def user_index
+    @user = User.find(params[:id])
+    @event = @user.events
+  end 
   # GET /events
   # GET /events.json
   def index

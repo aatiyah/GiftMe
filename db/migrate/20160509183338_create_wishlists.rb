@@ -4,7 +4,8 @@ class CreateWishlists < ActiveRecord::Migration
       t.string :title
       t.integer :price
       t.text :info
-
+      t.boolean :dibcheck
+      t.integer :user_id
       t.timestamps null: false
     end
   end

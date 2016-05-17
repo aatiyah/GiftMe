@@ -11,4 +11,7 @@ class TestController < ApplicationController
 		@activities = PublicActivity::Activity.order("created_at desc").all
 	end
 
+	def home
+		
+	end
 end

@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20160516175007) do
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "accepted_at"
+    t.datetime "updated_at",  null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -76,6 +78,11 @@ ActiveRecord::Schema.define(version: 20160516175007) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar_img"
+    t.date     "birthday"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -85,9 +92,10 @@ ActiveRecord::Schema.define(version: 20160516175007) do
     t.string   "title"
     t.integer  "price"
     t.text     "info"
+    t.boolean  "dibcheck"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "dibcheck"
   end
 
 end

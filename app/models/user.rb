@@ -2,13 +2,28 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :events         
+    validates :username, :birthday, presence: true
+
+	has_many :events
+
+	# Friendship related
 	has_many :friendships
-	has_many :friends, :through => :friendships
-	has_many :inverse_friendships , :class_name => "Friendship" , :foreign_key => "friend_id"
-	has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+	
+	has_many :friends, 
+		-> { where friendships: { status: "accepted"} },
+		through: :friendships
+
+	has_many :requested_friends,
+		-> { where friendships: { status: "requested"} },
+		through: :friendships, 
+		source: :friend 
+
+	has_many :pending_friends,
+		-> { where friendships: { status: "pending"} },
+		through: :friendships, 
+		source: :friend       
 end
 

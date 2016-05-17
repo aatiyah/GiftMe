@@ -2,19 +2,44 @@
   <div class="row">
     <div class="leftpanel">
       <div class="col s12 m3 l3 orange white-text"> 
-          <h5> Welcome <%=current_user.email %> </h5>
+        <% user = User.find(params[:id])%>
 
-          <div class="create_event">
-            <%= link_to 'Show/Create Personal Events', events_path %>
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+
+              <div class="col s2">
+                <% if user.avatar_img.empty?%>
+                  <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
+                <% else %>
+                  <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
+                <% end%>
+              </div>
+
+              <div class="col s10">
+                <span class="black-text">
+                  <p><%= user.username %></p>
+                  <p><%= user.birthday%></p>
+                  <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
+                    <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+                  <%end%>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="create_event">
+            <%= link_to 'Show/Create Personal Events', user_event_path(user.id) %>
           </div>
           <div class ="wishlist_link">
             <h5>go to your wishlist page <%= link_to "Wishlist", wishlists_path %> Here </a>NOW!</h5>
           </div>
-          <div class ="Friend_link">
-            <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here </a>NOW!</h5>
+          <div class="friends">
+            <%= link_to 'Friends', friend_path(user.id)%>
           </div>
-        </div>  
-    </div>
+        </div> 
 
     <div class="mainpanel">
       <div class="col s12 m9 l9"> 
@@ -24,3 +49,6 @@
     </div>  
   </div>
 </div>
+
+
+
