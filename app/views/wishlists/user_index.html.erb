@@ -1,0 +1,54 @@
+<h1><%= @user.email %>(wishlist)</h1>
+<div class ="check_box">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Info</th>
+        <th>Call Dibs?</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+<!-- https://www.youtube.com/watch?v=53s2_WQkhhw -->
+
+    <tbody>
+      <% @wishlist.each do |wishlist| %>
+        <tr>
+          <td><%= wishlist.title %></td>
+          <td><%= wishlist.price %></td>
+          <td><%= wishlist.info %></td>
+          
+            <td><!-- <%= check_box_tag "wishlist_id[]", wishlist.id  %>
+
+          <!-- I took out the top part of the form page, removed the errors, 
+  used this website for guidance when I was getting this error..
+  http://stackoverflow.com/questions/4425176/in-rails-how-to-handle-multiple-checked-checkboxes-just-split-on-the-or and  -->
+        <%= form_for @wishlist.new do |f| %>
+              <div class="field">
+                
+                <%= f.check_box :dibcheck, {multiple: true} %>
+                <%= f.label :dibcheck %><br>
+              </div>
+          <% end %>
+    </td>
+
+
+        <!-- need to figure out what way to have the person being signed in and being on this page to view these different things, through until the end -->
+        <% if current_user.id == @user.id %>
+
+          <td><%= link_to 'Show', wishlist %></td>
+          <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
+          <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+              
+  </table>
+</div>
+<br>
+<a class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></a>
+
+<%= link_to 'New Wishlist Item', new_wishlist_path %>
+<br/>

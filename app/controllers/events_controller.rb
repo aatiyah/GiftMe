@@ -5,12 +5,19 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    Event.where(user_id:  current_user.id)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
   end
+
+
+  def user_index
+    @events = Event.where(user_id: params[:id])
+  end
+
 
   # GET /events/new
   def new

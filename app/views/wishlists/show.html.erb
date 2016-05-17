@@ -16,10 +16,9 @@
 </p>
 
 <p>
-  <strong>Call Dibs:</strong>
+ 
   <%= @wishlist.dibcheck %>
-</p>
 
 
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
-<%= link_to 'Back', wishlists_path %>
+<%= link_to 'Back', user_wishlist_path(current_user.id) %>

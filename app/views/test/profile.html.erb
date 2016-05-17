@@ -49,10 +49,10 @@
 
 
       <div class ="wishlist_link">
-        <h5>go to your wishlist page <%= link_to "Wishlist", wishlists_path %> Here </a>NOW!</h5>
+        <h5>go to <u>your</u> wishlist page <%= link_to "Wishlist", user_wishlist_path(current_user.id) %> Here NOW!</h5>
       </div>
-      <div class ="Friend_link">
-        <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here </a>NOW!</h5>
+      <div class ="Friendship_link">
+        <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here NOW!</h5>
       </div>
 
 

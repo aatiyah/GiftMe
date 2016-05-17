@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :friendships
   devise_for :users
   resources :users
+
+  get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
+  get "users/:id/event" => "events#user_index", as: :user_event
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

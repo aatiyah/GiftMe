@@ -5,11 +5,21 @@ class WishlistsController < ApplicationController
   # GET /wishlists.json
   def index
     @wishlists = Wishlist.all
+    Wishlist.where(user_id:  current_user.id)
+  end
+
+  
+  def user_index
+    @user = User.find(params[:id])
+    @wishlist = @user.wishlists
+    
   end
 
   # GET /wishlists/1
   # GET /wishlists/1.json
+###########################################
   def show
+
   end
 
   # GET /wishlists/new
@@ -69,6 +79,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:title, :price, :info)
+      params.require(:wishlist).permit(:title, :price, :info, :dibcheck, :user_id)
     end
 end

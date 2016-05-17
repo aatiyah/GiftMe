@@ -11,9 +11,15 @@
     </div>
   <% end %>
 
+
+<%= current_user.id %>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
@@ -23,6 +29,7 @@
     <%= f.label :info %><br>
     <%= f.text_area :info %>
   </div>
+  <!-- see if we can get it to go straigh back to the list page -->
   <div class="actions">
     <%= f.submit %>
   </div>
