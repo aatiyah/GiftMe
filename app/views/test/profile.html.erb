@@ -1,40 +1,51 @@
-<% user = User.find(params[:id])%>
+<div class="template">
+  <div class="row">
+    <div class="leftpanel">
+      <div class="col s12 m3 l3 orange white-text"> 
+        <% user = User.find(params[:id])%>
 
-<div class="col s12 m8 offset-m2 l6 offset-l3">
-  <div class="card-panel grey lighten-5 z-depth-1">
-    <div class="row valign-wrapper">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
 
-      <div class="col s2">
-        <% if user.avatar_img.empty?%>
-          <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
-        <% else %>
-          <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
-        <% end%>
+              <div class="col s2">
+                <% if user.avatar_img.empty?%>
+                  <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
+                <% else %>
+                  <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
+                <% end%>
+              </div>
+
+              <div class="col s10">
+                <span class="black-text">
+                  <p><%= user.username %></p>
+                  <p><%= user.birthday%></p>
+                  <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
+                    <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+                  <%end%>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="option_list">
+          <ul>
+            <li><%= link_to 'Show/Create Personal Events', user_event_path(user.id) %></li>
+            <li><%= link_to "Wishlist", wishlists_path %></li>
+            <li><%= link_to 'Friends', friend_path(user.id)%></li>
+          </ul>
+        </div>
       </div>
+    </div> 
 
-      <div class="col s10">
-        <span class="black-text">
-          <p><%= user.username %></p>
-          <p><%= user.birthday%></p>
-          <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
-            <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
-          <%end%>
-        </span>
-      </div>
+    <div class="mainpanel">
+      <div class="col s12 m9 l9"> 
+        <h5>Testing Feed</h5>
 
-    </div>
+       </div>
+    </div>  
   </div>
 </div>
 
-<div class="friends">
-  <%= link_to 'Friends', friend_path(user.id)%>
-</div>
-  
-<div class="events">
-  <%= link_to 'Events', user_event_path(user.id) %>
-</div>
 
-<div class ="wishlist_link">
-  <h5><%= link_to "My Wishlist", wishlists_path %></h5>
-</div>
 

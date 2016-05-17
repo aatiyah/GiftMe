@@ -1,16 +1,35 @@
-<div class="container">
+<div class="template">
 	<div class="row">
-		<% @products.each do |p| %>
-			<div class="thumbnail col s12 m4 l3">
-				<img src="<%=p.img_url%>">
-				<div class= "textWrapper">
-					<p><%=link_to p.title, product_path(p.category.slug, p.id)%></p>
-					<p><%=p.price%></p>
+		<div class="leftpanel">
+			<div class="col s12 m3 l3 orange white-text"> 
+		  		<p>  </p>
+		  	</div>	
+		</div>
+
+		<div class="mainpanel">
+			<div class="col s12 m9 l9"> 
+				<div class="products-display">
+					<div class="row">
+						<% @products.each do |p| %>
+							<div class="col s12 m6 l4 center">
+								<div class="card">
+									<div class="card-image">
+										<img src="<%=p.img_url%>">
+									</div>
+									<div class="card-action">
+										<%=link_to p.title, product_path(p.category.slug, p.id)%>
+									</div>
+									<div class="card-content">
+										<p>Price: $<%=p.price%></p>
+									</div>
+								</div>
+							</div>
+						<% end %>
+					</div>
+
+					<%=will_paginate @products, class: "center" %>
 				</div>
 			</div>
-		<% end %>
+		</div>  
 	</div>
-</div>
-
-<%=will_paginate @products %>
-
+</div>	
