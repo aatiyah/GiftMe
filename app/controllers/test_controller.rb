@@ -1,7 +1,14 @@
 class TestController < ApplicationController
-  def welcome
-  end
+	before_action :load_activities, only: [:index, :show, :new, :edit]
 
-  def profile
-  end
+	def welcome
+	end
+
+	def profile
+	end
+
+	def load_activities
+		@activities = PublicActivity::Activity.order("created_at desc").all
+	end
+
 end

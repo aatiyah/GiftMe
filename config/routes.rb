@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'activities/index'
+
   # for root page & user profile
   root "test#welcome"
   get 'profile' => "test#profile"
