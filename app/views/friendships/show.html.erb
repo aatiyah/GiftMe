@@ -2,7 +2,7 @@
     <div class="notice"><%= flash[:notice] %></div>
  <% end %>
 
-<h1>Friends</h1>
+<h1><%=@user.username%>'s Friends</h1>
 
 <% @user.friends.each do |friend|%>
 	<div class="col s12 m8 offset-m2 l6 offset-l3">

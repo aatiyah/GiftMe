@@ -5,7 +5,11 @@
     <div class="row valign-wrapper">
 
       <div class="col s2">
-        <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
+        <% if user.avatar_img.empty?%>
+          <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
+        <% else %>
+          <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
+        <% end%>
       </div>
 
       <div class="col s10">
