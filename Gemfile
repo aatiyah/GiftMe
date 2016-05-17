@@ -66,3 +66,4 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 
 
+gem 'public_activity'

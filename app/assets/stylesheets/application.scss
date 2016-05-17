@@ -19,6 +19,21 @@ $primary-color: color("blue", "lighten-2") !default;
  *= require_self
  */
 
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.leftpanel {
+	height: 100vh;
+}
+
+
 .nav-wrapper img {
 	max-height: 100%;
 	max-width: 100%;
@@ -45,14 +60,39 @@ $primary-color: color("blue", "lighten-2") !default;
     border-bottom: 2px solid #64B5F6;
 }
 
-
 .check_box input[type="checkbox"]{
 	left: auto !important;
 	opacity: 0 !important;
 	z-index: 1;
 	 /* All browsers except webkit*/
-  transform: scale(1.5);
-/*http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
+  transform: scale(2.5);
+
+  
+/* http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
+
   /* Webkit browsers*/
-  -webkit-transform: scale(1.5);
+  -webkit-transform: scale(2.5);
+}
+.products-display .card {
+	height: 380px;
+}
+
+.products-display .card .card-image img {
+	height: 250px;
+}
+
+.products-display .card .card-action, .card .card-content {
+	padding: 10px;
+}
+
+.leftpanel {
+	height: 100%;
+}
+
+.option_list a {
+	color: white;
+}
+
+.option_list a:hover {
+	color: blue;
 }

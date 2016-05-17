@@ -1,6 +1,18 @@
-<h1>Editing Event</h1>
+<div class="template">
+	<div class="row">
+		<div class="leftpanel">
+			<div class="col s12 m3 l3 orange white-text"> 
+		  		<p>  </p>
+		  	</div>	
+		</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+		<div class="mainpanel">
+			<div class="col s12 m9 l9"> 
+				<h1>Editing Event</h1>
+				<%= render 'form' %>
+				<%= link_to 'Show', @event, class: "waves-effect orange btn" %>
+				<%= link_to 'Back', user_event_path(current_user.id), class: "waves-effect orange btn" %>
+			</div>
+		</div>  
+	</div>
+</div>

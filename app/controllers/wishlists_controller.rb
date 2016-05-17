@@ -71,6 +71,13 @@ class WishlistsController < ApplicationController
     end
   end
 
+helper_method :called_dibs
+  def called_dibs
+      Wishlist.update_all({dibcheck: true},{id: params[:wishlist_ids]})
+      flash[:notice] = "Changed dibcheck."
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wishlist

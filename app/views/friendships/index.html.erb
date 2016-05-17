@@ -1,65 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
-<h1>Listing Users</h1>
-
-
-  <% @friendships.each do |user| %>
-          <% if current_user.email  == user.email %>
-          <% else %>
-            <li>
-            <%= user.email %>
-            <%= link_to "Follow Friend", friendships_path(:friend_id =>user), :method => :post%>
-            </li>
-          <% end %>
-  <% end %>
+<h1>Lists of User</h1>
 
 
-  <h2>Friends Following</h2>
-    <ul>
-      <% current_user.friendships.each do |friendship| %>
-         <li> <%=friendship.friend.email%>(<%= link_to "remove", friendship, :method => :delete %>) </li>
-        <% end %>
-    </ul>
-
-    <h2> Followers </h2>
-      <ul>
-        <% current_user.inverse_friendships.each do |friendship| %>
-          <li> <%= friendship.user.email %> </li>
-          <% end %>
-      </ul>
-
-
-<%if false %>
-<!--
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Friend</th>
-      <th>Create</th>
-      <th>Destroy</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @friendships.each do |friendship| %>
-      <tr>
-        <td><%= friendship.user_id %></td>
-        <td><%= friendship.friend_id %></td>
-        <td><%= friendship.create %></td>
-        <td><%= friendship.destroy %></td>
-        <td><%= link_to 'Show', friendship %></td>
-        <td><%= link_to 'Edit', edit_friendship_path(friendship) %></td>
-        <td><%= link_to 'Destroy', friendship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Friendship', new_friendship_path %>
--->
-<%end %>
+<% @users.each do |user| %>
+	<% if user != current_user %>
+		<p><%=user.email%></p>
+		<% if not Friendship.exist?(current_user,user)%>
+			<%= link_to "Send Friend Request", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+		<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
+			<p>You have a friend request from <%=user.email%>.</p>
+			<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put %>
+			<%=link_to "Decline", friends_path(friend_id:user.id), :method => :delete, data: { confirm: "Are you sure?" } %>
+		<% elsif not current_user.pending_friends.where(id:user.id).empty? %>
+			<p>The friend request is pending.</p>
+		<% else %>
+			<p>Friends</p>
+		<% end %>
+	<% end %>
+<% end %>
