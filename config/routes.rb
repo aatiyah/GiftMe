@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'products/search' =>  "products#search"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
-
+  
 
   # mutual friendship routes
   get 'friendships' => "friendships#index"
@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   resources :events
   resources :activities
 
+  get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
   resources :wishlists
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -37,6 +37,13 @@ class WishlistsController < ApplicationController
     end
   end
 
+  def add
+    product = Product.find(params[:id])
+    Wishlist.create(title:product.title, price:product.price, user_id:current_user.id)
+    flash[:notice] = "#{product.title} is added to your wishlist"
+    redirect_to products_path
+  end
+
   # PATCH/PUT /wishlists/1
   # PATCH/PUT /wishlists/1.json
   def update
