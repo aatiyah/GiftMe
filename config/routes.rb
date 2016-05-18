@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # get events for individual users
   get ':id/events' => "events#user_index", as: :user_event
   resources :events
-  resources :activities
+  resources :activities, only: [:index]
 
   resources :wishlists
   # The priority is based upon order of creation: first created -> highest priority.

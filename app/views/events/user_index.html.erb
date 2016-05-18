@@ -1,7 +1,7 @@
 <div class="template">
   <div class="row">
     <div class="leftpanel">
-      <div class="col s12 m3 l3 orange white-text"> 
+      <div class="col s12 m3 l3 orange white-text" id="left-section"> 
           <p>  </p>
         </div>  
     </div>
@@ -15,8 +15,8 @@
               <div class="card">
                 <div class="card-content">
                   <span class="card-title orange-text">Event Title: <%= event.title%></span>
-                  <p>Posted at: <%= event.created_at.strftime("%m/%d/%Y %I:%M%p") %></p>
-                  <p class="notes">Notes: <%= event.notes[0..250] %></p>
+                  <p>Created on: <%= event.created_at.strftime("%m/%d/%Y %I:%M%p") %></p>
+                  <p class="notes">Notes: <%= event.notes %></p>
                   <p><%= link_to '[Read More]', event%></p>
                 </div>
                 <div class="card-action">

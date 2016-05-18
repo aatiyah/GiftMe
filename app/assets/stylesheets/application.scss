@@ -18,6 +18,10 @@ $primary-color: color("blue", "lighten-2") !default;
  *= require_tree .
  *= require_self
  */
+html {
+	min-height: 100vh;
+}
+
 
 body {
 	display: flex;
@@ -29,8 +33,8 @@ main {
 	flex: 1 0 auto;
 }
 
-.leftpanel {
-	height: 100vh;
+.template, #left-section {
+	min-height: 100vh;
 }
 
 
@@ -81,5 +85,38 @@ main {
 }
 
 .option_list a:hover {
-	color: blue;
+	color: #64B5F6;
+}
+
+footer.page-footer {
+	margin-top: 0px;
+}
+
+#template-container {
+	margin-bottom: 0px;
+}
+
+.card .card-content {
+	word-wrap: break-word;
+}
+
+#activity-user-details img {
+	height: 40px;
+	width: 40px;
+}
+
+#activity-text-details, #activity-user-details {
+	margin-left: 0px;
+}
+
+#activity-card {
+	padding: 10px;
+}
+
+.material-icons {
+	vertical-align: middle;
+}
+
+#activity-cards {
+	margin-left: 5px;
 }

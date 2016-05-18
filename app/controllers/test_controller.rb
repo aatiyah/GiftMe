@@ -5,10 +5,10 @@ class TestController < ApplicationController
 	end
 
 	def profile
+	    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user, owner_type: "User")
 	end
 
 	def load_activities
-		@activities = PublicActivity::Activity.order("created_at desc").all
 	end
 
 	def home
