@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :wishlists do
     collection do
       put :called_dibs
+      put :remove
     end
   end
 

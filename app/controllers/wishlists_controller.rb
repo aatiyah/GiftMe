@@ -73,9 +73,16 @@ class WishlistsController < ApplicationController
 
 helper_method :called_dibs
   def called_dibs
-      Wishlist.update_all({dibcheck: true},{id: params[:wishlist_ids]})
-      flash[:notice] = "Changed dibcheck."
+    Wishlist.where(:id => params[:dibcheck]).update_all(dibs_user: current_user.id)
+    redirect_to :back
   end
+
+  helper_method :remove
+  def remove
+    Wishlist.where(:id => params[:id]).update_all(dibs_user: nil)
+    redirect_to :back
+  end
+
 
 
   private

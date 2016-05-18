@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @user.email %>(wishlist)</h1>
 
+<%= form_tag called_dibs_wishlists_path, method: :put do%>
 
 <div class ="check_box">
   <table>
@@ -14,33 +15,40 @@
       </tr>
     </thead>
 <!-- https://www.youtube.com/watch?v=53s2_WQkhhw -->
-
-
     <tbody>
-      <% @wishlist.each do |wishlist| %>
+    <% for wishlist in @wishlist %>
         <tr>
           <td><%= wishlist.title %></td>
           <td><%= wishlist.price %></td>
           <td><%= wishlist.info %></td>
-          <td><%= check_box(@wishlist,:dibcheck,{},true,false)  %></td>
-          
-            <td><!-- <%= check_box_tag "wishlist_id[]", wishlist.id  %>
+            <!-- checks to see who is looking at form -->
+            <% if current_user == @user %>
+                <!-- need to set remove for the current user -->
+                <% if wishlist.dibs_user != nil %>
+                <td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %>  <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %></td>
+                <% else %>
+                <td> Get your friends to call dibs! </td>
+                <%end %>
+            <% elsif not Friendship.exist?(current_user,@user)%>
+                <td> You are not friends with this user yet </td>
+            <%else %>
+            <!-- goes into who has the check-->
+                <% if wishlist.dibs_user == current_user.id %>
+                    <!-- need to find a way to change from true to false -->
+                    <td>You have called dibs <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %> </td>
+                    <!-- this line is one I need to figure out how to change -->
+                <% else %>
+                    <% if wishlist.dibs_user != nil %>
+                    <!-- this line will show who has it dibbed -->
+                      <td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %> </td>
+                    <!-- once i figure out how to set it -->
+                    <% else %>
+                      <td><%= check_box_tag "dibcheck[]", wishlist.id %></td>
+                    <% end %>
 
-          <!-- I took out the top part of the form page, removed the errors, 
-  used this website for guidance when I was getting this error..
-  http://stackoverflow.com/questions/4425176/in-rails-how-to-handle-multiple-checked-checkboxes-just-split-on-the-or and  -->
-        <%= form_tag called_dibs_wishlists_path, method: :put do%>
-
-          <%= form_for @wishlist.new do |f| %>
-                <div class="field">
-                  <%= f.check_box :dibcheck, {multiple: true} %>
-                  <%= f.label :dibcheck %><br>
-                </div>
+                <% end %>
+              <!-- -->
             <% end %>
-        <% end %>
-    </td>
-
-
 
         <% if current_user.id == @user.id %>
           <td><%= link_to 'Show', wishlist %></td>
@@ -55,7 +63,8 @@
 </div>
 
 <br>
-<a class="waves-effect waves-light btn"><%= submit_tag "DIBS!" , data: { notice: 'Called dib happen' } %></a>
+<a class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></a>
 
 <%= link_to 'New Wishlist Item', new_wishlist_path %>
 <br/>
+<% end %>
