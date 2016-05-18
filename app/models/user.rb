@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-    validates :username, :birthday, presence: true
+    validates :username, :birthday,:first_name, :last_name, presence: true
 
+    has_many :wishlists
 	has_many :events
 
 	# Friendship related
@@ -25,5 +26,6 @@ class User < ActiveRecord::Base
 		-> { where friendships: { status: "pending"} },
 		through: :friendships, 
 		source: :friend       
+
 end
 

@@ -5,11 +5,7 @@
       <div class="col s12 m8">
         <div class="card">
           <div class="card-image">
-            <% if user.avatar_img.empty?%>
-              <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
-            <% else %>
-              <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
-            <% end%>
+                <%=image_tag avatar_img(user), class:"circle responsive-img" %> 
           </div>
 
           <div class="card-content center">
@@ -20,12 +16,13 @@
                 <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
               <%end%>
             </span>
+
           </div>
         </div>
         <div class="option_list">
           <ul>
             <li><%= link_to 'Events', user_event_path(user.id) %></li>
-            <li><%= link_to "Wishlist", wishlists_path %></li>
+            <li><%= link_to "Wishlist", user_wishlist_path(current_user.id) %></li>
             <li><%= link_to 'Friends', friend_path(user.id)%></li>
           </ul>
           <% # Test %>
@@ -39,6 +36,7 @@
     </div>
   </div> 
 </div>
+
 
 
 

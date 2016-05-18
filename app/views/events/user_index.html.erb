@@ -10,11 +10,11 @@
       <div class="col s12 m9 l9"> 
         <h1>Events</h1>
         <div class="row">
-          <% @event.each do |event| %>
+          <% @events.each do |event| %>
             <div class="col s12 m4">
               <div class="card">
                 <div class="card-content">
-                  <span class="card-title orange-text">Event Title: <%= event.title%></span>
+                  <span class="card-title orange-text"><%= event.title%></span>
                   <p>Created on: <%= event.created_at.strftime("%m/%d/%Y %I:%M%p") %></p>
                   <p class="notes">Notes: <%= event.notes %></p>
                   <p><%= link_to '[Read More]', event%></p>
@@ -34,3 +34,4 @@
     </div>  
   </div>
 </div>
+
