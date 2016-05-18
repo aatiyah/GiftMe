@@ -1,23 +1,27 @@
-<% if @user.nil? %>
-  <% @user = current_user %>
-<% end %>
+<%if not current_user.nil?  %>
 
-<div class="card">
-  <div class="card-image">
-    <%=image_tag avatar_img(@user), class:"circle responsive-img" %> 
+  <% if @user.nil? %>
+    <% @user = current_user %>
+  <% end %>
+
+  <div class="card">
+    <div class="card-image">
+      <%=image_tag avatar_img(@user), class:"circle responsive-img" %> 
+    </div>
+
+    <div class="card-content center">
+      <span class="black-text">
+        <p><%= @user.first_name%> <%= @user.last_name%></p>
+        <p><%= @user.username %></p>
+        <p><%= @user.birthday%></p>
+        <%if current_user != @user && (not Friendship.exist?(current_user, @user)) %>
+          <%=link_to "Add Friend", friendships_path(friend_id: @user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+        <%elsif current_user == @user %>
+          <%=link_to "Edit User Info", edit_user_registration_path %>
+        <%end%>
+      </span>
+    </div>
+
   </div>
 
-  <div class="card-content center">
-    <span class="black-text">
-      <p><%= @user.first_name%> <%= @user.last_name%></p>
-      <p><%= @user.username %></p>
-      <p><%= @user.birthday%></p>
-      <%if current_user != @user && (not Friendship.exist?(current_user, @user)) %>
-        <%=link_to "Add Friend", friendships_path(friend_id: @user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
-      <%elsif current_user == @user %>
-        <%=link_to "Edit User Info", edit_user_registration_path %>
-      <%end%>
-    </span>
-  </div>
-
-</div>
+<% end  %>
