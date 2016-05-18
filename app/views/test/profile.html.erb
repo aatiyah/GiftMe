@@ -1,29 +1,14 @@
 <div class="template">
   <div class="row" id="template-container">
     <div class="col s12 m3 l3 orange white-text" id="left-section"> 
-      <% user = User.find(params[:id])%>
+      <% @user = User.find(params[:id])%>
       <div class="col s12 m8">
-        <div class="card">
-          <div class="card-image">
-                <%=image_tag avatar_img(user), class:"circle responsive-img" %> 
-          </div>
-
-          <div class="card-content center">
-            <span class="black-text">
-              <p><%= user.username %></p>
-              <p><%= user.birthday%></p>
-              <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
-                <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
-              <%end%>
-            </span>
-
-          </div>
-        </div>
+        
         <div class="option_list">
           <ul>
-            <li><%= link_to 'Events', user_event_path(user.id) %></li>
-            <li><%= link_to "Wishlist", user_wishlist_path(current_user.id) %></li>
-            <li><%= link_to 'Friends', friend_path(user.id)%></li>
+            <li><%= link_to 'Events', user_event_path(@user.id) %></li>
+            <li><%= link_to "Wishlist", user_wishlist_path(@user.id) %></li>
+            <li><%= link_to 'Friends', friend_path(@user.id)%></li>
           </ul>
           <% # Test %>
           <% # render template: "events/user_index" %>
