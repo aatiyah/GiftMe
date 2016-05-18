@@ -11,7 +11,7 @@
 <body>
 	<nav class="light-blue lighten-1" role="navigation">
 	    <div class="nav-wrapper container">
-	    <%=image_tag("logo.png", class:"brand-logo", id:"logo-container")%>
+	    <%= link_to image_tag("logo.png", class:"brand-logo", id:"logo-container"), root_path%><%=%>
 	      <ul class="right hide-on-med-and-down">
 	        <%= render 'nav'%>
 	      </ul>
