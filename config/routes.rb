@@ -20,13 +20,23 @@ Rails.application.routes.draw do
   put 'friends' => "friendships#update"
   delete 'friends' => "friendships#destroy"
   
+  get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
+  get "users/:id/events" => "events#user_index", as: :user_event
+
   # get events for individual users
-  get ':id/events' => "events#user_index", as: :user_event
+  
   resources :events
   resources :activities
 
+  # wishlists stuff
   get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
-  resources :wishlists
+
+  resources :wishlists do
+    collection do
+      put :called_dibs
+      put :remove
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

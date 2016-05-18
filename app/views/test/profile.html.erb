@@ -22,7 +22,7 @@
         <div class="option_list">
           <ul>
             <li><%= link_to 'Show/Create Personal Events', user_event_path(user.id) %></li>
-            <li><%= link_to "Wishlist", wishlists_path %></li>
+            <li><%= link_to "Wishlist", user_wishlist_path(current_user.id) %></li>
             <li><%= link_to 'Friends', friend_path(user.id)%></li>
           </ul>
         </div>
@@ -33,10 +33,19 @@
       <div class="col s12 m9 l9"> 
         <h5>Testing Feed</h5>
 
+
+<!--      <div class ="wishlist_link">
+        <h5>go to <u>your</u> wishlist page <%= link_to "Wishlist", user_wishlist_path(current_user.id) %> Here NOW!</h5>
+      </div>
+      <div class ="Friendship_link">
+        <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here NOW!</h5>
+      </div> -->
+
        </div>
     </div>  
   </div>
 </div>
+
 
 
 

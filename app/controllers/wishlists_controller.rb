@@ -5,11 +5,21 @@ class WishlistsController < ApplicationController
   # GET /wishlists.json
   def index
     @wishlists = Wishlist.all
+    Wishlist.where(user_id:  current_user.id)
+  end
+
+  
+  def user_index
+    @user = User.find(params[:id])
+    @wishlist = @user.wishlists
+    
   end
 
   # GET /wishlists/1
   # GET /wishlists/1.json
+###########################################
   def show
+
   end
 
   # GET /wishlists/new
@@ -68,6 +78,20 @@ class WishlistsController < ApplicationController
     end
   end
 
+helper_method :called_dibs
+  def called_dibs
+    Wishlist.where(:id => params[:dibcheck]).update_all(dibs_user: current_user.id)
+    redirect_to :back
+  end
+
+  helper_method :remove
+  def remove
+    Wishlist.where(:id => params[:id]).update_all(dibs_user: nil)
+    redirect_to :back
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wishlist
@@ -76,6 +100,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:title, :price, :info)
+      params.require(:wishlist).permit(:title, :price, :info, :dibcheck, :user_id)
     end
 end

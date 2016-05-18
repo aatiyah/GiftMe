@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @wishlist %> |
-<%= link_to 'Back', wishlists_path %>
+<%= link_to 'Show', user_wishlist_path(current_user.id) %> |
+<%= link_to 'Back', user_wishlist_path(current_user.id) %>
