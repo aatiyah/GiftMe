@@ -9,6 +9,7 @@
 
   <div class="card-content center">
     <span class="black-text">
+      <p><%= @user.first_name%> <%= @user.last_name%></p>
       <p><%= @user.username %></p>
       <p><%= @user.birthday%></p>
       <%if current_user != @user && (not Friendship.exist?(current_user, @user)) %>

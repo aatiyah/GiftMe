@@ -21,8 +21,10 @@
 	      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 	    </div>
 	</nav>
-
-	<%= render partial:"userinfo" %>
+	
+	<% if params[:action] != "welcome" && params[:controller] != "devise/sessions" %>
+		<%= render partial:"userinfo" %>
+	<% end %>
 
 	<%= yield %>
 
