@@ -2,33 +2,31 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # for root page & user profile
+  # for root page & user specific pages
   root "test#welcome"
-  get 'profile/:id' => "test#profile", as: :profile
+  get 'users/:id' => "test#profile", as: :profile
+  get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
+  get "users/:id/events" => "events#user_index", as: :user_event
+  get 'users/:id/friends' => "friendships#show", as: :friend
+  get 'home' => "test#home"
 
-  # for products pages
+  # Products
   get 'products' => "products#index"
   get 'products/search' =>  "products#search"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
   
 
-  # mutual friendship routes
+  # Mutual Friendship
   get 'friendships' => "friendships#index"
-  get ':id/friends' => "friendships#show", as: :friend
   post 'friendships' => "friendships#create"
   put 'friends' => "friendships#update"
   delete 'friends' => "friendships#destroy"
   
-  get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
-  get "users/:id/events" => "events#user_index", as: :user_event
-
-  # get events for individual users
-  
+  # Events
   resources :events
-  resources :activities
 
-  # wishlists stuff
+  # Wishlists
   get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
 
   resources :wishlists do
@@ -38,6 +36,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # Feed
+  resources :activities
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

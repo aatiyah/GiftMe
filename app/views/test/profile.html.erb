@@ -21,7 +21,7 @@
         </div> 
         <div class="option_list">
           <ul>
-            <li><%= link_to 'Show/Create Personal Events', user_event_path(user.id) %></li>
+            <li><%= link_to 'Events', user_event_path(user.id) %></li>
             <li><%= link_to "Wishlist", user_wishlist_path(current_user.id) %></li>
             <li><%= link_to 'Friends', friend_path(user.id)%></li>
           </ul>

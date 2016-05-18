@@ -1,0 +1,51 @@
+<div class="template">
+  <div class="row">
+    <div class="leftpanel">
+      <div class="col s12 m3 l3 orange white-text"> 
+        <% user = current_user %>
+
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+
+                <%=image_tag avatar_img(user), class:"circle responsive-img" %> 
+            
+                <span class="black-text">
+                  <p><%= user.username %></p>
+                  <p><%= user.birthday%></p>
+                  <%if current_user != user && (not Friendship.exist?(current_user,user)) %>
+                    <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+                  <%end%>
+                </span>
+
+          </div>
+        </div> 
+        <div class="option_list">
+          <ul>
+            <li><%= link_to 'Events', user_event_path(user.id) %></li>
+            <li><%= link_to "Wishlist", user_wishlist_path(current_user.id) %></li>
+            <li><%= link_to 'Friends', friend_path(user.id)%></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+
+    <div class="mainpanel">
+      <div class="col s12 m9 l9"> 
+        <h5>Testing Feed</h5>
+
+
+<!--      <div class ="wishlist_link">
+        <h5>go to <u>your</u> wishlist page <%= link_to "Wishlist", user_wishlist_path(current_user.id) %> Here NOW!</h5>
+      </div>
+      <div class ="Friendship_link">
+        <h5>go to the users page <%= link_to "Friendship", friendships_path %> Here NOW!</h5>
+      </div> -->
+
+       </div>
+    </div>  
+  </div>
+</div>
+
+
+
+
