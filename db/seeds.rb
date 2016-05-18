@@ -304,11 +304,11 @@ Product.create!([
 
 
 User.create!([
-	{email: "googlethis@gmail.com", password:"1234567", username:"googlethis",avatar_img:"avatar/cashier.png", birthday: Date.new(1990,3,1)},
-	{email: "googlethat@gmail.com", password:"1234567", username:"googlethat",avatar_img:"avatar/cooker.png", birthday: Date.new(2010,3,1)},
-	{email: "frank@gmail.com", password:"1234567", username:"frank",avatar_img:"avatar/detective.png", birthday: Date.new(1998,3,1)},
-	{email: "bob@gmail.com", password:"1234567", username:"bob",avatar_img:"avatar/diver.png", birthday: Date.new(1992,3,1)},
-	{email: "foo@gmail.com", password:"1234567", username:"foo",avatar_img:"avatar/dj.png", birthday: Date.new(1995,3,1)}
+	{email: "googlethis@gmail.com", password:"1234567", username:"googlethis",avatar_img:"avatar/cashier.png", birthday: Date.new(1990,3,1), first_name:"foo", last_name:"bar"},
+	{email: "googlethat@gmail.com", password:"1234567", username:"googlethat",avatar_img:"avatar/cooker.png", birthday: Date.new(2010,3,1),first_name:"goo", last_name:"gar"},
+	{email: "frank@gmail.com", password:"1234567", username:"frank",avatar_img:"avatar/detective.png", birthday: Date.new(1998,3,1), first_name:"too", last_name:"tar"},
+	{email: "bob@gmail.com", password:"1234567", username:"bob",avatar_img:"avatar/diver.png", birthday: Date.new(1992,3,1), first_name:"zoo", last_name:"zar"},
+	{email: "foo@gmail.com", password:"1234567", username:"foo",avatar_img:"avatar/dj.png", birthday: Date.new(1995,3,1), first_name:"roo", last_name:"rar"}
 	])
 
 Category.create!([

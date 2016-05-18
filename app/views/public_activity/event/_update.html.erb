@@ -2,7 +2,7 @@
 updated an event
 
 <% if activity.trackable %>
-  <%= activity.trackable %>
+  <%= link_to activity.trackable.title, activity.trackable %>
 <% else %>
-  updated an event, which has since been removed.
+  , which has since been removed.
 <% end %>
