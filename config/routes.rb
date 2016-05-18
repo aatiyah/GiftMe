@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   # for products pages
   get 'products' => "products#index"
+  get 'products/search' =>  "products#search"
   get 'products/:category' => "categories#index", as: :category
   get 'products/:category/:id' => "products#show", as: :product
+
 
   # mutual friendship routes
   get 'friendships' => "friendships#index"

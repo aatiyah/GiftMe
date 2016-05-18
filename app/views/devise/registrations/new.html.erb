@@ -8,12 +8,22 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, class:"form-control half-width", placeholder: "First & Last Name"  %>
+    <%= f.text_field :username, class:"form-control half-width", placeholder: "Username"  %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, placeholder: "First Name"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, placeholder: "Last Name"%>
+  </div>
+
+  <div class="field">
     <strong>Your Birthday: </strong><%= f.date_field :birthday  %> 
   </div>
 

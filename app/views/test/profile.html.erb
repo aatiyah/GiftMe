@@ -6,17 +6,9 @@
 
         <div class="col s12 m8 offset-m2 l6 offset-l3">
           <div class="card-panel grey lighten-5 z-depth-1">
-            <div class="row valign-wrapper">
 
-              <div class="col s2">
-                <% if user.avatar_img.empty?%>
-                  <%=image_tag("avatar/concierge.png", class:"circle responsive-img")%> 
-                <% else %>
-                  <%=image_tag(user.avatar_img, class:"circle responsive-img")%> 
-                <% end%>
-              </div>
-
-              <div class="col s10">
+                <%=image_tag avatar_img(user), class:"circle responsive-img" %> 
+            
                 <span class="black-text">
                   <p><%= user.username %></p>
                   <p><%= user.birthday%></p>
@@ -24,8 +16,7 @@
                     <%=link_to "Add Friend", friendships_path(friend_id: user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
                   <%end%>
                 </span>
-              </div>
-            </div>
+
           </div>
         </div> 
         <div class="option_list">
