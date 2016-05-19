@@ -158,3 +158,18 @@ nav {
 span#usercard a {
 	color: #03a9f4;
 }
+
+div.usercardimage img {
+	margin-top: 20px;
+}
+
+div#usercard.card {
+	margin-left: 12px;
+	margin-right: 12px;
+	box-shadow: none;
+	
+}
+
+div.card-content.center {
+	padding: 0;
+}
