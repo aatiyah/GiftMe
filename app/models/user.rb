@@ -29,5 +29,8 @@ class User < ActiveRecord::Base
 		through: :friendships, 
 		source: :friend       
 
+	def full_name
+    	name = first_name + ' ' + last_name
+ 	end
 end
 

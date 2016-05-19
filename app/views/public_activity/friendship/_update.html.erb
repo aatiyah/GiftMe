@@ -2,5 +2,4 @@
 is now friends with 
 <% id = activity.recipient_id %>
 <% friend = User.find(id) %>
-<% name = friend.first_name + " " + friend.last_name %>
-<%=link_to name, profile_path(id) %>
+<%=link_to friend.full_name, profile_path(id) %>
