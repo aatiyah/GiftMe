@@ -13,7 +13,4 @@ class ProductsController < ApplicationController
 		@products = Product.search(params[:search]).paginate(:page=>params[:page],:per_page => 30)
 	end
 
-	private
-    	# Use callbacks to share common setup or constraints between actions.
-
 end

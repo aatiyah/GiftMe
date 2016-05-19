@@ -33,6 +33,7 @@
 
 
 <%if @user == current_user %>
+
 	<h4><%=current_user.requested_friends.length%> Friend Request</h4>
 	<% current_user.requested_friends.each do |friend|%>
 		<p><%=friend.email%></p>
@@ -45,6 +46,7 @@
 	<% current_user.pending_friends.each do |friend|%>
 		<p><%=friend.email%></p>
 	<% end %>
+
 <% end %>
 
 <%=link_to "Find Friends", friendships_path %>
