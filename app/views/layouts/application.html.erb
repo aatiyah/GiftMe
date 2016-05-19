@@ -11,7 +11,7 @@
 	<nav class="top-nav light-blue lighten-1" role="navigation" 
 	id="<%="#{'navtop' if params[:action]!="welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"}"%>"> 
         <div class="nav-wrapper container">
-        	<%=image_tag("logo.png", class:"brand-logo", id:"logo-container")%>
+        	<%= link_to (image_tag("logo.png", class:"brand-logo", id:"logo-container")) , root_path %>
         	<ul class="right hide-on-med-and-down">
         		<%= render 'topnavlinks'%>
         	</ul>
