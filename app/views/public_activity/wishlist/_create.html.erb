@@ -1,0 +1,11 @@
+<% if activity.trackable %>
+	<% wishlist_title = activity.trackable.title %>
+	<% wishlist_link = activity.trackable %>
+
+	<i class="material-icons" >add_circle_outline</i>
+
+	added an item to wishlist
+	<%= link_to wishlist_title, wishlist_link %>. 
+<% else %>
+	added an item to wishlist, which has since been removed.
+<% end %>

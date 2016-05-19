@@ -19,6 +19,7 @@
  
   <%= @wishlist.dibcheck %>
 
-
-<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
-<%= link_to 'Back', user_wishlist_path(current_user.id) %>
+<% if @event.user == current_user %>
+	<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
+	<%= link_to 'Back', user_wishlist_path(current_user.id) %>
+<% end %>
