@@ -1,12 +1,6 @@
 <i class="material-icons">border_color</i>
-becomes friend with 
-
-<% if activity.trackable %>
-	<% id = activity.recipient_id %>
-	<% friend = User.find(id) %>
-	<% name = friend.first_name + " " + friend.last_name %>
-	<%=link_to name, profile_path(id) %>
-	
-<% else %>
-  	self!
-<% end %>
+is now friends with 
+<% id = activity.recipient_id %>
+<% friend = User.find(id) %>
+<% name = friend.first_name + " " + friend.last_name %>
+<%=link_to name, profile_path(id) %>
