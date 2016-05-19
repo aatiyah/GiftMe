@@ -1,0 +1,12 @@
+<% if not current_user.nil? %>
+	<% 	if params[:id] %>
+			<% 	id = params[:id].to_i %>
+	<% 	else %>
+		<% 	id = current_user.id %>
+	<% end %>
+
+	<li><%= link_to 'Product', products_path%></li>
+	<li><%= link_to 'Events', user_event_path(id) %></li>
+	<li><%= link_to "Wishlist", user_wishlist_path(id) %></li>
+	<li><%= link_to 'Friends', friend_path(id)%></li>
+<% end %>
