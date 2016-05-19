@@ -1,17 +1,16 @@
-<p id="notice"><%= notice %></p>
 <!-- http://materializecss.com/media-css.html -->
-
 <div class="mainpanel">
-      <div class="col s12 m9 l9"> 
-<h1>Wishlist</h1>
-
+  <div class="col s12 m9 l9"> 
+    <h1>Wishlist</h1>
+  <div class="wishlink">
     <% if @user.id >=2  %>
-        <a href = "/users/<%= @user.id - 1%>/wishlist"> Previous Wishlist </a>
+      <a href = "/users/<%= @user.id - 1%>/wishlist">Previous Wishlist</a>
     <% end %>
     <% if @user.id < User.all.length %>
-        <a href = "/users/<%= @user.id + 1%>/wishlist">
-        Next Wishlist </a>
+      <a href = "/users/<%= @user.id + 1%>/wishlist" class ="next">Next Wishlist</a>
     <% end %>
+  </div>
+
 
 
 
@@ -20,10 +19,6 @@
   <div class="card">
     <div class="card-content">
 <%= form_tag called_dibs_wishlists_path, method: :put do%>
-
-
-
-
 
 
 <div class ="check_box">
@@ -39,8 +34,21 @@
     </thead>
 
 <!-- https://www.youtube.com/watch?v=53s2_WQkhhw -->
+    
+
     <tbody>
     <% for wishlist in @wishlist %>
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s10">
+              <span class="black-text">
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
         <tr>
           <td><%= wishlist.title %></td>
           <td><%= wishlist.price %></td>
@@ -79,13 +87,17 @@
           <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
           <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
+
         <% end %>
       <% end %>
-    </tbody>     
+    </tbody>   
+
+
+
+
+
   </table>
 </div>
-
-
 
 <br>
 <div class = "clickbutton">
