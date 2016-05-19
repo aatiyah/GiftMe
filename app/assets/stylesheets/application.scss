@@ -187,3 +187,16 @@ div.card-reveal p {
 	text-align: left;
 	margin-left: 20px;
 }
+
+.wishlink a.next{
+    text-align:right;
+}
+
+.wishlink{
+    display: flex;
+}
+
+.wishlink a {
+    display:block;
+    flex:1;
+}
