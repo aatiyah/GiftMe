@@ -19,10 +19,10 @@
 </p>
 
 
-
+<% if @wishlist.user == current_user %>
 <%= link_to 'Edit', edit_wishlist_path(@wishlist), class: "waves-effect orange btn" %> |
 <%= link_to 'Back', user_wishlist_path(current_user.id) , class: "waves-effect orange btn" %>
-
+<% end %>
 
 			</span>
 		</div>

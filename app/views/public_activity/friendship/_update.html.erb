@@ -1,0 +1,5 @@
+<i class="material-icons">people</i>
+is now friends with 
+<% id = activity.recipient_id %>
+<% friend = User.find(id) %>
+<%=link_to friend.full_name, profile_path(id) %>
