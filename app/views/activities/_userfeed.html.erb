@@ -1,19 +1,26 @@
 <div class="col s12 m12 l12 offset-m2 l6 offset-l3" id="activity-cards">
 	<% @activities.each do |activity| %>
-		<div class="card-panel grey lighten-4 z-depth-1" id="activity-card">
-			<div class="row valign-wrapper">
-				<div class="col s2 center" id="activity-user-details">
-					<%= image_tag activity.owner.avatar_img, class: "circle responsive-img" %>   	
-				</div>
-				<div class="col s10" id="activity-text-details">
-					<span class="black-text">
-						<div class="activity">
-							<%= link_to activity.owner.username, profile_path(activity.owner) if activity.owner %>
-							<%= render_activity activity %>
-						</div>
-					</span>
+		<% if (activity.trackable_type == "Friendship" && activity.trackable.nil?) || (activity.trackable_type == "Wishlist" && activity.trackable.nil?) %>
+			
+		<% else %>
+
+			<div class="card-panel grey lighten-4 z-depth-1" id="activity-card">
+				<div class="row valign-wrapper">
+					<div class="col s2 center" id="activity-user-details">
+						<%= image_tag avatar_img(activity.owner), class: "circle responsive-img" %> 
+					</div>
+					<div class="col s10" id="activity-text-details">
+						<span class="black-text">
+							<div class="activity">
+								<%= link_to activity.owner.username, profile_path(activity.owner) if activity.owner %>
+								<%= render_activity activity %>
+							</div>
+						</span>
+					</div>
 				</div>
 			</div>
-		</div>
+
+		<% end %>
+
 	<% end %>
 </div>

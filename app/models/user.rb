@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
     validates :username, :birthday,:first_name, :last_name, presence: true
 
+    
+    
     has_many :wishlists
 	has_many :events
 
