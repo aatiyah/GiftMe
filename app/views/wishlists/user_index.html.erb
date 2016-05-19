@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1>Wishlist</h1>
 
+    <% if @user.id >=2  %>
+        <a href = "/users/<%= @user.id - 1%>/wishlist"> Previous Wishlist </a>
+    <% end %>
+    <% if @user.id < 5 %>
+        <a href = "/users/<%= @user.id + 1%>/wishlist">
+        Next Wishlist </a>
+    <% end %>
+    
+
+
+
 <%= form_tag called_dibs_wishlists_path, method: :put do%>
 
 <div class ="check_box">
@@ -68,3 +79,4 @@
 <%= link_to 'New Wishlist Item', new_wishlist_path %>
 <br/>
 <% end %>
+

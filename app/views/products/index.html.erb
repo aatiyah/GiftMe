@@ -2,27 +2,29 @@
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<div class="col s12 m9 l9"> 
+<div class="col s12 m9 l9" id="main-section"> 
 	<%= render 'form' %>
-		<div class="products-display">
-			<div class="row">
-				<% @products.each do |p| %>
-					<div class="col s12 m6 l4 center">
-						<div class="card">
-							<div class="card-image">
-							<img src="<%=p.img_url%>">
-							</div>
-							<div class="card-action">
-							<%= p.title[0..60]%>
-							</div>
-							<div class="card-content">
-							<p>Price: $<%=p.price%></p>
-							<p><%=link_to "Add to my Wishlist", addtowishlist_path(p.id)%></p>
-							</div>
-						</div>
+	<div class="products-display">
+		<div class="row">
+			<% @products.each do |p| %>
+			<div class="col s12 m6 l4 center">
+				<div class="card">
+					<div class="card-image">
+						<img src="<%=p.img_url%>">
 					</div>
-				<% end %>
+					<div class="card-action">
+						<%=link_to p.title[0..60], product_path(p.category.slug, p.id)%>
+					</div>
+					<div class="card-content">
+						<p>Price: $<%=p.price%></p>
+						<% if not current_user.wishlists.where(title:p.title).present?%>
+							<p><%=link_to "Add to my Wishlist", addtowishlist_path(p.id)%></p>
+						<% end %>
+					</div>
+				</div>
 			</div>
 		</div>
-	<%=will_paginate @products, class: "center" %>
+			<% end %>
+	</div>
 </div>
+<%=will_paginate @products, class: "center" %>

@@ -7,20 +7,22 @@
 		</div>
 		<div class="mainpanel">
 			<div class="col s12 m9 l9"> 
-				<h1>Editing Event</h1>
+				<h1>Event</h1>
 				<p id="notice"><%= notice %></p>
 		    	<div class="row">
 	          		<div class="col s12 m4">
 	            		<div class="card">
 		                	<div class="card-content">
-		                		<div class="card-title">Title: <%= @event.title%></dic>
+		                		<div class="card-title"><%= @event.title%></dic>
 		                		<div class="card-title">Date: <%= @event.date%></div>
 		                		<div class="card-title">Annual: <%= @event.annual%></div>
 		                		<div class="card-title">Notes: <%= @event.notes%></div>
 		                	</div>
 		                	<div class="card-action">
-			                	<%= link_to 'Edit', edit_event_path(@event), class: "waves-effect orange btn"%>
-			                	<%= link_to "Back", user_event_path(current_user.id), class: "waves-effect orange btn"%>
+		                		<% if @event.user == current_user %>
+			                		<%= link_to 'Edit', edit_event_path(@event), class: "waves-effect orange btn"%>
+			                		<%= link_to "Back", user_event_path(current_user.id), class: "waves-effect orange btn"%>
+			                	<% end %>
 			                </div>
 		            	</div>
 		            </div>

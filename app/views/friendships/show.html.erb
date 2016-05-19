@@ -15,6 +15,7 @@
 
 				<div class="col s10">
 					<span class="black-text">
+						<p><%=link_to "#{friend.first_name} #{friend.last_name}", profile_path(friend.id) %></p>
 						<p><%= friend.username %></p>
 						<p><%= friend.birthday%></p>
 						<% if @user == current_user %>
