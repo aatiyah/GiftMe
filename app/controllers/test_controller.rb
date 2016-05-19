@@ -5,13 +5,13 @@ class TestController < ApplicationController
 	end
 
 	def profile
-	    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user, owner_type: "User")
+		@activities = PublicActivity::Activity.order("created_at desc").where(:owner_id => params[:id]) 
 	end
 
 	def load_activities
 	end
 
 	def home
-		
+		@activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends.pluck(:id).push(current_user.id))
 	end
 end

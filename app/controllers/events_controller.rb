@@ -10,11 +10,13 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @user = @event.user
   end
 
 
   def user_index
-    @events = User.find(params[:id]).events
+    @user = User.find(params[:id])
+    @events = @user.events
   end
 
 
