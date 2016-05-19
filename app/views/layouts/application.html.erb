@@ -9,23 +9,31 @@
 </head>
 
 <body>
-	<nav class="light-blue lighten-1" role="navigation">
-	    <div class="nav-wrapper container">
-	    <%=image_tag("logo.png", class:"brand-logo", id:"logo-container")%>
-	      <ul class="right hide-on-med-and-down">
-	        <%= render 'nav'%>
-	      </ul>
+	<nav class="top-nav light-blue lighten-1" role="navigation" 
+	id="<%="#{'navtop' if params[:action]!="welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"}"%>"> 
+        <div class="nav-wrapper container">
+        	<%=image_tag("logo.png", class:"brand-logo", id:"logo-container")%>
+        	<ul class="right hide-on-med-and-down">
+        		<%= render 'topnavlinks'%>
+        	</ul>
 
-	      <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-	        <%= render 'nav'%>
-	      </ul>
-	      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-	    </div>
-	</nav>
+        	<% if params[:action] != "welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"%>
+        		<%= render 'sidenav' %>
+        	<% end %>
+        </div>
+    </nav>
+    <%= params %>
+    <main>
+		<div class="col s12 m9 l9" 
+		id="<%="#{'main-section' if params[:action]!="welcome"}"%>"> 
+			<%= yield %>
+		</div>
+	</main>		  
 
-	<%= yield %>
 
-	<footer class="page-footer light-blue lighten-1">
+
+	<footer class="page-footer light-blue lighten-1" 
+	id="<%="#{'mainfooter' if params[:action]!="welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"}"%>"> 
 	    <div class="container">
 	      <div class="row">
 	        <div class="col l6 s12">

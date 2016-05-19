@@ -18,25 +18,16 @@ $primary-color: color("blue", "lighten-2") !default;
  *= require_tree .
  *= require_self
  */
-html {
-	min-height: 100vh;
-}
-
 
 body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+	display: flex !important;
+	min-height: 100vh !important;
+	flex-direction: column !important;
 }
 
 main {
-	flex: 1 0 auto;
+	flex: 1 0 auto !important;
 }
-
-.template, #left-section {
-	min-height: 100vh;
-}
-
 
 .nav-wrapper img {
 	max-height: 100%;
@@ -89,24 +80,12 @@ main {
 	padding: 10px;
 }
 
-.leftpanel {
-	height: 100%;
-}
-
 .option_list a {
 	color: white;
 }
 
 .option_list a:hover {
 	color: #64B5F6;
-}
-
-footer.page-footer {
-	margin-top: 0px;
-}
-
-#template-container {
-	margin-bottom: 0px;
 }
 
 .card .card-content {
@@ -133,3 +112,46 @@ footer.page-footer {
 #activity-cards {
 	margin-left: 5px;
 }
+
+nav#navtop.top-nav.light-blue.lighten-1 {
+    height: 70px;
+    box-shadow: none;
+	margin-left: 240px;
+}
+
+.side-nav.fixed a {
+	color: white;
+}
+
+#main-section {
+		margin-left: 260px;
+		margin-right: 20px;
+	}
+
+#mainfooter {
+	margin-left: 230px;
+}
+
+@media screen and (max-width: 992px){
+	#main-section {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	#mainfooter, nav#navtop.top-nav.light-blue.lighten-1 {
+		margin-left: 0px;
+	}
+}
+
+/*.page-footer a {
+	color: orange !important;
+}*/
+
+nav {
+	width: inherit;
+}
+
+.side-nav li {
+	margin-left: 20px;
+}
+
