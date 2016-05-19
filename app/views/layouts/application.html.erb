@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 </head>
-
 <body>
 	<nav class="light-blue lighten-1" role="navigation">
 	    <div class="nav-wrapper container">
@@ -22,6 +21,12 @@
 	      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 	    </div>
 	</nav>
+
+	
+	<% if params[:action] != "welcome" && params[:controller] != "devise/sessions" && params[:controller] != "devise/registrations" %>
+		<%= render partial:"userinfo" %>
+	<% end %>
+	
 
 	<%= yield %>
 

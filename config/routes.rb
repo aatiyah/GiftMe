@@ -24,18 +24,20 @@ Rails.application.routes.draw do
   delete 'friends' => "friendships#destroy"
   
   # Events
-  resources :events
-  resources :activities, only: [:index]
+  resources :events, except: :index
 
   # Wishlists
   get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
 
-  resources :wishlists do
+  resources :wishlists, except: :index do
     collection do
       put :called_dibs
       put :remove
     end
   end
+
+  # Feed
+  resources :activities, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,26 +1,22 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
-  def user_index
-    @user = User.find(params[:id])
-    @event = @user.events
-  end 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
-    Event.where(user_id:  current_user.id)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @user = @event.user
   end
 
 
   def user_index
-    @events = Event.where(user_id: params[:id])
+    @user = User.find(params[:id])
+    @events = @user.events
   end
 
 

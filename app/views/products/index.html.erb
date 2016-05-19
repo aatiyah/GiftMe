@@ -22,7 +22,9 @@
 								</div>
 								<div class="card-content">
 								<p>Price: $<%=p.price%></p>
-								<p><%=link_to "Add to my Wishlist", addtowishlist_path(p.id)%></p>
+								<% if not current_user.wishlists.where(title:p.title).present?%>
+									<p><%=link_to "Add to my Wishlist", addtowishlist_path(p.id)%></p>
+								<% end %>
 								</div>
 							</div>
 						</div>
