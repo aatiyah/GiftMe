@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
+<!-- http://materializecss.com/media-css.html -->
+
+<div class="mainpanel">
+      <div class="col s12 m9 l9"> 
 <h1>Wishlist</h1>
 
     <% if @user.id >=2  %>
         <a href = "/users/<%= @user.id - 1%>/wishlist"> Previous Wishlist </a>
     <% end %>
-    <% if @user.id < 5 %>
+    <% if @user.id < User.all.length %>
         <a href = "/users/<%= @user.id + 1%>/wishlist">
         Next Wishlist </a>
     <% end %>
@@ -12,19 +16,28 @@
 
 
 
+<div class="col s12 m4">
+  <div class="card">
+    <div class="card-content">
 <%= form_tag called_dibs_wishlists_path, method: :put do%>
+
+
+
+
+
 
 <div class ="check_box">
   <table>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Info</th>
-        <th>Call Dibs?</th>
+        <th><span class="card-title orange-text">Title</span></th>
+        <th><span class="card-title orange-text">Price</span></th>
+        <th><span class="card-title orange-text">Info</span></th>
+        <th><span class="card-title orange-text">Call Dibs?</span></th>
         <th colspan="4"></th>
       </tr>
     </thead>
+
 <!-- https://www.youtube.com/watch?v=53s2_WQkhhw -->
     <tbody>
     <% for wishlist in @wishlist %>
@@ -68,10 +81,11 @@
         </tr>
         <% end %>
       <% end %>
-    </tbody>
-             
+    </tbody>     
   </table>
 </div>
+
+
 
 <br>
 <div class = "clickbutton">
@@ -81,3 +95,10 @@
 <br/>
 <% end %>
 
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
