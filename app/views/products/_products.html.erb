@@ -1,0 +1,30 @@
+<h2 class="header center orange-text">Products</h2>
+<%= render 'form' %>
+<div class="products-display">
+	<div class="row">
+		<% @products.each do |p| %>
+			<div class="col s12 m4 l3 center">
+				<div class="card">
+				    <div class="card-image waves-effect waves-block waves-light">
+				      <img class="activator" src="<%=p.img_url%>">
+				    </div>
+				    <div class="card-content">
+				      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+				      <p><%= p.title[0..40] %>...</p>
+				      <p>Price: $<%=p.price%></p>
+				      <% if not current_user.wishlists.where(title:p.title).present?%>
+				        <p><%=link_to "Add to my Wishlist", addtowishlist_path(p.id)%></p>
+				      <% else %>
+				      	<p>Added to wishlist </p>
+				      <% end %>
+				    </div>
+				    <div class="card-reveal">
+				      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+				      <p><%= p.title %></p>
+				    </div>
+				  </div>
+			</div>
+		<% end %>
+	</div>
+<%=will_paginate @products, class: "center" %>
+</div>
