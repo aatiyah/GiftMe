@@ -70,13 +70,17 @@ main {
 	z-index: 1;
 	 /* All browsers except webkit*/
   transform: scale(2.5);
-
-  
 /* http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
-
   /* Webkit browsers*/
   -webkit-transform: scale(2.5);
 }
+
+
+.clickbutton{
+	display:block;
+}
+
+
 .products-display .card {
 	height: 380px;
 }

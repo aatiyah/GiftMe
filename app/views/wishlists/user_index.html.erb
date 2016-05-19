@@ -8,7 +8,7 @@
         <a href = "/users/<%= @user.id + 1%>/wishlist">
         Next Wishlist </a>
     <% end %>
-    
+
 
 
 
@@ -74,8 +74,9 @@
 </div>
 
 <br>
-<a class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></a>
-
+<div class = "clickbutton">
+<button class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></button>
+</div>
 <%= link_to 'New Wishlist Item', new_wishlist_path %>
 <br/>
 <% end %>
