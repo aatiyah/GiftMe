@@ -1,16 +1,15 @@
 <%if current_user %>
-
   <% if @user.nil? %>
     <% @user = current_user %>
   <% end %>
 
-  <div class="card">
+  <div class="card" id="usercard">
     <div class="card-image">
       <%=image_tag avatar_img(@user), class:"circle responsive-img" %> 
     </div>
 
     <div class="card-content center">
-      <span class="black-text">
+      <span class="black-text" id="usercard">
         <p><%= @user.first_name%> <%= @user.last_name%></p>
         <p><%= @user.username %></p>
         <p><%= @user.birthday%></p>
@@ -23,5 +22,4 @@
     </div>
 
   </div>
-
 <% end  %>
