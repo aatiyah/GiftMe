@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     
     has_many :wishlists
 	has_many :events
+	has_many :statuses
 
 	# Friendship related
 	has_many :friendships

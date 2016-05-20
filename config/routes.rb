@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :statuses
   devise_for :users
 
   # for root page & user specific pages
