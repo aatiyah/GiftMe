@@ -1,6 +1,8 @@
-<h1>Editing Wishlist</h1>
+<div class = "wishlist_edit center">
+	<h2 class="header center orange-text"> Wishlist </h2>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', user_wishlist_path(current_user.id) , class: "waves-effect orange btn" %> 
-<%= link_to 'Back', :back , class: "waves-effect orange btn" %>
+	<%= link_to 'Show', user_wishlist_path(current_user.id) , class: "waves-effect orange btn" %> 
+	<%= link_to 'Back', :back , class: "waves-effect orange btn" %>
+</div>
