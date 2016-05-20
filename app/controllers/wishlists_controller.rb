@@ -12,7 +12,7 @@ class WishlistsController < ApplicationController
         product = Product.find(params[:id])
         Wishlist.create(title:product.title, price:product.price, user_id:current_user.id)
         flash[:notice] = "#{product.title} is added to your wishlist"
-        redirect_to products_path
+        redirect_to :back
     end
 
     # GET /wishlists/1
