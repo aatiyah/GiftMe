@@ -1,7 +1,4 @@
 <div class="categoryindex">
-	<% if flash[:notice] %>
-		<div class="notice"><%= flash[:notice] %></div>
-	<% end %>
 
 	<h2 class="header center orange-text"><%= params[:category].capitalize %></h2>
 	<%= render 'products' %>

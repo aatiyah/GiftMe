@@ -1,9 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
-  # GET /events/1
-  # GET /events/1.json
   def show
     @user = @event.user
   end
@@ -13,7 +10,6 @@ class EventsController < ApplicationController
     @user = User.find(params[:id])
     @events = @user.events
   end
-
 
   # GET /events/new
   def new

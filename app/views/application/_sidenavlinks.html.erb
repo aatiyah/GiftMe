@@ -22,6 +22,10 @@
 	<li><%= link_to 'Events', user_event_path(id) %></li>
 	<li><%= link_to "Wishlist", user_wishlist_path(id) %></li>
 	<li><%= link_to 'Friends', friend_path(id)%></li>
+
+	<div class="hide-on-large-only">
+		<%= render 'topnavlinks' %>
+	</div>
 <% end %>
 
 

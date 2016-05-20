@@ -110,9 +110,10 @@ main {
 	padding: 10px;
 }
 
-.material-icons {
+.material-icons, .fa {
 	vertical-align: middle;
 }
+
 
 #activity-cards {
 	margin-left: 5px;
@@ -146,14 +147,32 @@ nav#navtop.top-nav.light-blue.lighten-1 {
 	#mainfooter, nav#navtop.top-nav.light-blue.lighten-1 {
 		margin-left: 0px;
 	}
+
+}
+
+.page-footer p.grey-text.text-lighten-4 {
+    text-align: justify;
+    padding-right: 10px;
+}
+
+.page-footer .board ul li {
+	margin: 10px 0 10px 0
+}
+
+.page-footer .board span {
+	margin-right: 10px;
 }
 
 .page-footer a {
-	color: yellow !important;
+	color: white;	
 }
 
 .page-footer a:hover {
-	color: white !important;
+	color: orange;
+}
+
+.page-footer a .fa {
+	margin: 0px 6px 0px 6px;
 }
 
 nav {
@@ -201,11 +220,69 @@ span#usercard p {
 div.card-reveal p {
 	text-align: left;
 	margin-left: 20px;
-
 }
+
+.wishlink a.next{
+    text-align:right;
+}
+
+.wishlink{
+    display: flex;
+}
+
+.wishlink a {
+    display:block;
+    flex:1;
+}
+
+.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6 {
+	float: none;
+	margin-left: 25%;
+	text-align: left;
+}
+
+.userevents div.row {
+	margin-top: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+    color:black;
+}
+
+.pagination .current {
+	display: inline-block;
+    font-size: 1.2rem;
+    font-size: normal;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+	background-color: #ee6e73;
+	color:white;
+}
+
+.pagination em {
+	font-style: normal;
+}
+
 
 .wishlist_form div.col.s12.m6.l6 , .wishlist_show div.col.s12.m6.l6 {
     float: none;
     margin-left: 25%;
     text-align: left;
 }
+.pagination .disabled {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+}
+

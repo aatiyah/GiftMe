@@ -10,14 +10,14 @@ class FriendshipsController < ApplicationController
 	def create
 		friend = User.find(params[:friend_id])
 		Friendship.request(current_user,friend)
-		flash[:notice] = "Friend #{friend.email} requested."
+		flash[:notice] = "Friend request is sent to #{friend.email}."
 		redirect_to :back
 	end
 
 	def update
 		friend = User.find(params[:friend_id])
 		Friendship.accept(current_user,friend)
-		flash[:notice] = "Friend request accepted, you are now friend with #{friend.email}."
+		flash[:notice] = "Friend request accepted, you are now friends with #{friend.email}."
 		redirect_to :back
 	end
 
