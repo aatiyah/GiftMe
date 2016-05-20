@@ -61,13 +61,17 @@ main {
 	z-index: 1;
 	 /* All browsers except webkit*/
   transform: scale(2.5);
-
-  
 /* http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
-
   /* Webkit browsers*/
   -webkit-transform: scale(2.5);
 }
+
+
+.clickbutton{
+	display:block;
+}
+
+
 .products-display .card {
 	height: 300px;
 }
@@ -106,7 +110,7 @@ main {
 	padding: 10px;
 }
 
-.material-icons {
+.material-icons,  {
 	vertical-align: middle;
 }
 
@@ -164,6 +168,17 @@ span#usercard a {
 	color: #03a9f4;
 }
 
+.wishlink a.next{
+	text-align:right;
+}
+
+.wishlink{
+	display: flex;
+}
+.wishlink a {
+	display:block;
+	flex:1;
+}
 div.usercardimage img {
 	margin-top: 20px;
 	height: 150px
@@ -199,4 +214,14 @@ div.card-reveal p {
 .wishlink a {
     display:block;
     flex:1;
+}
+
+.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6 {
+	float: none;
+	margin-left: 25%;
+	text-align: left;
+}
+
+.userevents div.row {
+	margin-top: 20px;
 }

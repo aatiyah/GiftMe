@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
     validates :username, :birthday,:first_name, :last_name, presence: true
 
+    
+    
     has_many :wishlists
 	has_many :events
 
@@ -27,5 +29,8 @@ class User < ActiveRecord::Base
 		through: :friendships, 
 		source: :friend       
 
+	def full_name
+    	name = first_name + ' ' + last_name
+ 	end
 end
 

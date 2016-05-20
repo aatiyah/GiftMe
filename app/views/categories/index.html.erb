@@ -1,14 +1,8 @@
-<div class="container">
-	<div class="row">
-		<% @products.each do |p|%>
-			<div class="thumbnail col s12 m4 l3">
-				<img src="<%=p.img_url%>">
-				<p><%=link_to p.title, product_path(p.category.slug, p.id)%></p>
-				<p><%=p.price%></p>
-			</div>
-		<% end %>
+<div class="categoryindex">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
 
-	</div>
+	<h2 class="header center orange-text"><%= params[:category].capitalize %></h2>
+	<%= render 'products' %>
 </div>
-
-<%=will_paginate @products  %>

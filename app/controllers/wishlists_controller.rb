@@ -1,13 +1,6 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
-  # GET /wishlists
-  # GET /wishlists.json
-  def index
-    @wishlists = Wishlist.all
-    Wishlist.where(user_id:  current_user.id)
-  end
-
   
   def user_index
     @user = User.find(params[:id])
@@ -73,7 +66,7 @@ class WishlistsController < ApplicationController
   def destroy
     @wishlist.destroy
     respond_to do |format|
-      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Wishlist was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

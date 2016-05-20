@@ -1,4 +1,4 @@
-<% if activity.trackable %>
+
 	<% event_title = activity.trackable.title %>
 	<% event_link = activity.trackable %>
 
@@ -6,6 +6,3 @@
 
 	added an event
 	<%= link_to event_title, event_link %>. 
-<% else %>
-	added an event, which has since been removed.
-<% end %>
