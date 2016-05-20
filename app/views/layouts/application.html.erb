@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>UGiftme</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" %>
+
 </head>
+
 <body>
 	<nav class="top-nav light-blue lighten-1" role="navigation" 
 	id="<%="#{'navtop' if params[:action]!="welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"}"%>"> 
         <div class="nav-wrapper container">
-        	<%=image_tag("logo.png", class:"brand-logo", id:"logo-container")%>
+        	<%= link_to (image_tag("logo.png", class:"brand-logo", id:"logo-container")) , root_path %>
         	<ul class="right hide-on-med-and-down">
         		<%= render 'topnavlinks'%>
         	</ul>
@@ -24,6 +28,17 @@
 
     <main>
 		<div class="col s12 m9 l9" id="<%="#{'main-section' if params[:action]!="welcome"}"%>"> 
+			<% if flash[:notice] %>
+				<div class="notice">
+					<script>
+				      $(function() {
+				        Materialize.toast('<%= flash[:notice] %>', 4000, 'rounded');
+				      });
+				    </script>
+			    </div>
+			<% end %>
+
+
 			<%= yield %>
 		</div>
 	</main>		  
@@ -36,30 +51,36 @@
 	          <h5 class="white-text">About GiftMe</h5>
 	          <p class="grey-text text-lighten-4">We are a team of Coding Bootcamp-ers working on this project to showcase what we have learned during the past 8 weeks. Topics learned: Ruby on Rails, HTML, CSS, JavaScript, jQuery, Deployment, Domain Modeling, APIs, Databases, Materialize, Model Associations, Git, GitHub, and Ruby Gems.</p>
 	        </div>
-	        <div class="board col l3 s12">
+	        <div class="board col l6 s12">
 	          <h5 class="white-text">Our Board</h5>
 	          <ul>
-	            <li><a class="white-text" href="https://www.linkedin.com/in/ahmadatiyah
-				" target="_blank">Ahmad Atiyah</a></li>
-	            <li><a class="white-text" href="https://www.linkedin.com/in/linyang18" target="_blank">Lin Yang</a></li>
-	            <li><a class="white-text" href="https://www.linkedin.com/in/travissteadman" target="_blank">Travis Steadman</a></li>
-	          </ul>
-	        </div>
-	        <div class="col l3 s12">
-	          <h5 class="white-text">Connect</h5>
-	          <ul>
-	            <li><a class="white-text" href="#!">Link 1</a></li>
-	            <li><a class="white-text" href="#!">Link 2</a></li>
-	            <li><a class="white-text" href="#!">Link 3</a></li>
-	            <li><a class="white-text" href="#!">Link 4</a></li>
+				<li>
+            		<span class="white-text">Ahmad Atiyah</span>
+            		<a href="https://www.linkedin.com/in/ahmadatiyah" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            		<a href="https://github.com/aatiyah" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+	            </li>
+
+	            <li>
+	            	<span class="white-text">Lin Yang</span>
+            		<a href="http://www.linkedin.com/in/linyang18" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            		<a href="https://github.com/darktef" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+            		<a href="http://darktef.github.io/" target="_blank"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+	            </li>
+
+	            
+	            <li>
+	            	<span class="white-text">Travis Steadman</span>
+            		<a href="https://www.linkedin.com/in/travissteadman" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            		<a href="https://github.com/TSTEADMAN21" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+	            </li>
 	          </ul>
 	        </div>
 	      </div>
 	    </div>
 	    <div class="footer-copyright">
 			<div class="container">
-				Made by <a class="orange-text text-lighten-3" href="http://materializecss.com"><a class="white-text" href="https://github.com/aatiyah
-				" target="_blank">Ahmad Atiyah</a>, <a class="white-text" href="https://github.com/darktef" target="_blank">Lin Yang</a>, and <a class="white-text" href="https://github.com/TSTEADMAN21" target="_blank">Travis Steadman</a></a>
+				<span>Made by Ahmad Atiyah, Lin Yang, and Travis Steadman</span>
+		        <span class="right">© 2016 Ahmad Atiyah, Lin Yang, and Travis Steadman Some rights reserved.</span>
 			</div>
 	    </div>
 	</footer>

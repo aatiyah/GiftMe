@@ -1,123 +1,86 @@
 <div class="wishlistindex">
-<h2 class="header center orange-text">Wishlist</h2>
+    <h2 class="header center orange-text">Wishlist</h2>
 
-<div class="wishlink">
-<% if @user.id >=2  %>
-<a href = "/users/<%= @user.id - 1%>/wishlist">Previous Wishlist</a>
-<% end %>
-<% if @user.id < User.all.length %>
-<a href = "/users/<%= @user.id + 1%>/wishlist" class ="next">Next Wishlist</a>
-<% end %>
-</div>
+    <div class="wishlink">
+        <% if @user.id >=2  %>
+            <a href = "/users/<%= @user.id - 1%>/wishlist">Previous User</a>
+        <% end %>
+        <% if @user.id < User.all.length %>
+            <a href = "/users/<%= @user.id + 1%>/wishlist" class ="next">Next User</a>
+        <% end %>
+    </div>
 
-
-
-
-
-<div class="col s12 m4">
-<div class="card">
-<div class="card-content">
-<%= form_tag called_dibs_wishlists_path, method: :put do%>
-
-
-<div class ="check_box">
-<table>
-<thead>
-<tr>
-<th><span class="card-title orange-text">Title</span></th>
-<th><span class="card-title orange-text">Price</span></th>
-<th><span class="card-title orange-text">Info</span></th>
-<th><span class="card-title orange-text">Call Dibs?</span></th>
-<th colspan="4"></th>
-</tr>
-</thead>
-
-<!-- https://www.youtube.com/watch?v=53s2_WQkhhw -->
-
-
-
-
-
-
-
-<tbody>
-<% for wishlist in @wishlist %>
-<div class="col s12 m8 offset-m2 l6 offset-l3">
-<div class="card-panel grey lighten-5 z-depth-1">
-<div class="row valign-wrapper">
-<div class="col s10">
-<span class="black-text">
-<tr>
-<td><%= wishlist.title %></td>
-<td><%= wishlist.price %></td>
-<td><%= wishlist.info %></td>
-<!-- checks to see who is looking at form -->
-<% if current_user == @user %>
-<!-- need to set remove for the current user -->
-<% if wishlist.dibs_user != nil %>
-<td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %>  <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %></td>
-<% else %>
-<td> Get your friends to call dibs! </td>
-<%end %>
-<% elsif not Friendship.exist?(current_user,@user)%>
-<td> You are not friends with this user yet </td>
-<%else %>
-<!-- goes into who has the check-->
-<% if wishlist.dibs_user == current_user.id %>
-<!-- need to find a way to change from true to false -->
-<td>You have called dibs <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %> </td>
-<!-- this line is one I need to figure out how to change -->
-<% else %>
-<% if wishlist.dibs_user != nil %>
-<!-- this line will show who has it dibbed -->
-<td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %> </td>
-<!-- once i figure out how to set it -->
-<% else %>
-<td><%= check_box_tag "dibcheck[]", wishlist.id %></td>
-<% end %>
-
-<% end %>
-<!-- -->
-<% end %>
-
-<% if current_user.id == @user.id %>
-<td><%= link_to 'Show', wishlist %></td>
-<td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
-<td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
-</span>
-</div>
-</div>
-</div>
-</div>
-
-
-<% end %>
-<% end %>
-</tbody>  
-
-
-
-
-
-</table>
-</div>
-
-<br>
-<div class = "clickbutton">
-<button class="waves-effect waves-light btn"><%= submit_tag "DIBS!" %></button>
-</div>
     <% if User.find(params[:id]) == current_user %>
-       <%= link_to 'New Wishlist Item', new_wishlist_path %>
-   <br/>
+        <%= link_to 'New Wishlist Item', new_wishlist_path, class: "waves-effect orange btn" %>
     <% end %>
-<% end %>
 
-</div>
-</div>
-</div>
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-content">
+                <%= form_tag called_dibs_wishlists_path, method: :put do%>
 
+                    <div class ="check_box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><span class="card-title orange-text">Title</span></th>
+                                    <th><span class="card-title orange-text">Price</span></th>
+                                    <th><span class="card-title orange-text">Info</span></th>
+                                    <th><span class="card-title orange-text">Call Dibs?</span></th>
+                                    <th colspan="4"></th>
+                                    </tr>
+                            </thead>
 
-</div>
-</div>
+                            <tbody>
+                                <% for wishlist in @wishlist %>
+
+                                    <tr>
+                                        <td><%= wishlist.title %></td>
+                                        <td><%= wishlist.price %></td>
+                                        <td><%= wishlist.info %></td>
+                                        <!-- checks to see who is looking at form -->
+                                        <% if current_user == @user %>
+                                            <!-- need to set remove for the current user -->
+                                            <% if wishlist.dibs_user != nil %>
+                                                <td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %>  <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %></td>
+                                            <% else %>
+                                                <td> Get your friends to call dibs! </td>
+                                            <% end %>
+
+                                        <% elsif not Friendship.exist?(current_user,@user)%>
+                                            <td> You are not friends with this user yet </td>
+                                        <% else %>
+                                            <!-- goes into who has the check-->
+                                            <% if wishlist.dibs_user == current_user.id %>
+                                            <!-- need to find a way to change from true to false -->
+                                                <td>You have called dibs <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %> </td>
+                                            <!-- this line is one I need to figure out how to change -->
+                                            <% else %>
+                                                <% if wishlist.dibs_user != nil %>
+                                                <!-- this line will show who has it dibbed -->
+                                                    <td> This spot has been taken by <%= User.find(wishlist.dibs_user).username %> </td>
+                                                <!-- once i figure out how to set it -->
+                                                <% else %>
+                                                    <td><%= check_box_tag "dibcheck[]", wishlist.id %></td>
+                                                <% end %>
+                                            <% end %>
+                                            <!-- -->
+                                        <% end %>
+
+                                        <% if current_user.id == @user.id %>
+                                            <td><%= link_to 'Show', wishlist %></td>
+                                            <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
+                                            <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% end %>
+                                    </tr>
+                                <% end %>
+                            <% end %>
+                        </tbody>  
+                    </table>
+                </div>
+                <br>
+                <button class="waves-effect waves-light light-blue lighten-1 btn" style = "float:right;"><%= submit_tag "DIBS!" %></button>
+            </div>
+        </div>
+    </div>
 </div>
