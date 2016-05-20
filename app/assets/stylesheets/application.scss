@@ -222,3 +222,38 @@ div.card-reveal p {
 	margin-left: 20px;
 
 }
+
+.pagination a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+    color:black;
+}
+
+.pagination .current {
+	display: inline-block;
+    font-size: 1.2rem;
+    font-size: normal;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+	background-color: #ee6e73;
+	color:white;
+}
+
+.pagination em {
+	font-style: normal;
+}
+
+.pagination .disabled {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+}
