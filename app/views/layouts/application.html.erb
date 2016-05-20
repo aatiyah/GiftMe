@@ -28,6 +28,17 @@
 
     <main>
 		<div class="col s12 m9 l9" id="<%="#{'main-section' if params[:action]!="welcome"}"%>"> 
+			<% if flash[:notice] %>
+				<div class="notice">
+					<script>
+				      $(function() {
+				        Materialize.toast('<%= flash[:notice] %>', 4000);
+				      });
+				    </script>
+			    </div>
+			<% end %>
+
+
 			<%= yield %>
 		</div>
 	</main>		  
