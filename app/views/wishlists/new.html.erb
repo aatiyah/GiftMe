@@ -1,5 +1,6 @@
-<h1>New Wishlist</h1>
+<div class = "new_wishlist center">
+	<h2 class="header center orange-text">Wishlist</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', user_wishlist_path(current_user.id), class: "waves-effect light-blue lighten-1 btn" %>
+	<%= render 'form' %>
+	<%= link_to 'Back', user_wishlist_path(current_user.id), class: "waves-effect orange btn" %>
+</div>

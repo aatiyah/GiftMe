@@ -1,48 +1,52 @@
-<div class="row">
-  <div class="col s12 m5">
-    <div class="card-panel white">
-      <span class="black-text">
+<div class = "wishlist_form">
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <div class="card-panel white">
+        <span class="black-text">
+          
 
-<%= form_for(@wishlist) do |f| %>
-  <% if @wishlist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wishlist.errors.count, "error") %> prohibited this wishlist from being saved:</h2>
 
-      <ul>
-      <% @wishlist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@wishlist) do |f| %>
+    <% if @wishlist.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@wishlist.errors.count, "error") %> prohibited this wishlist from being saved:</h2>
+
+        <ul>
+        <% @wishlist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.number_field :price %>
+    </div>
+      <div class="field">
+      <%= f.hidden_field :dibcheck, value: false %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :dibs_user, value: 0 %>
+    </div>
+    <div class="field">
+      <%= f.label :info %><br>
+      <%= f.text_area :info %>
+    </div>
+    <!-- see if we can get it to go straigh back to the list page -->
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-    <div class="field">
-    <%= f.hidden_field :dibcheck, value: false %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :dibs_user, value: 0 %>
-  </div>
-  <div class="field">
-    <%= f.label :info %><br>
-    <%= f.text_area :info %>
-  </div>
-  <!-- see if we can get it to go straigh back to the list page -->
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-      </span>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-</div>

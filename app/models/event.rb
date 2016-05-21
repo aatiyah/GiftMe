@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 	include PublicActivity::Model
-	tracked owner: Proc.new{ |controller, model| controller.current_user }
+	tracked owner: Proc.new{ |controller, model| model.user }
 
 	validates :title, :date, presence: true
 	belongs_to :user

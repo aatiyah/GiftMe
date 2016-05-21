@@ -300,6 +300,12 @@ div.card-reveal p {
 	background-color: #ff9800 !important;
 }
 
+.wishlist_form div.col.s12.m6.l6 , .wishlist_show div.col.s12.m6.l6 {
+    float: none;
+    margin-left: 25%;
+    text-align: left;
+}
+
 .pagination .disabled {
     display: inline-block;
     font-size: 1.2rem;
