@@ -28,8 +28,5 @@
 		<% end %>
 	</div>
 
-	<% if User.find(params[:id]) == current_user %>
-		<%= link_to 'New Event', new_event_path, class: "waves-effect orange btn" %>
-	<% end %>
 </div>
 		
