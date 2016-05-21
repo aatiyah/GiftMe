@@ -23,6 +23,7 @@ body {
 	display: flex !important;
 	min-height: 100vh !important;
 	flex-direction: column !important;
+	background-image: url("bg2.gif");	
 }
 
 main {
@@ -247,7 +248,7 @@ div.card-reveal p {
 }
 
 .wishlink a.next{
-    text-align:right;
+    text-align: right;
 }
 
 .wishlink{
@@ -255,17 +256,11 @@ div.card-reveal p {
 }
 
 .wishlink a {
-    display:block;
-    flex:1;
+    display: block;
+    flex: 1;
 }
 
-.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6 {
-	float: none;
-	margin-left: 25%;
-	text-align: left;
-}
-
-.deviseform div.col.s12.m6.l6 {
+.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6, .signin div.col.s12.m6.l6, .deviseform div.col.s12.m6.l6, .edit-profile div.col.s12.m6.l6 {
 	float: none;
 	margin-left: 25% !important;
 	text-align: left;
@@ -301,6 +296,10 @@ div.card-reveal p {
 	font-style: normal;
 }
 
+.pagination em.current {
+	background-color: #ff9800 !important;
+}
+
 .pagination .disabled {
     display: inline-block;
     font-size: 1.2rem;
@@ -308,4 +307,26 @@ div.card-reveal p {
     line-height: 30px;
     border-radius: 2px;
     text-align: center;
+}
+
+.user-friends div.card.white, .find-friends div.card.white {
+	padding: 20px;
+}
+
+
+
+.edit-profile div.left {
+	margin-left: 25%;
+}
+
+.edit-profile div.right {
+	margin-right: 25%;
+}
+
+.find-friends .card .card-action a, .user-friends .card .card-action a {
+	margin-right: 0px !important;
+}
+
+#search-card {
+	padding: 20px;
 }
