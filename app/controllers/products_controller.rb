@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
 	def index
-		@products = Product.all.order("RANDOM()").paginate(:page=>params[:page],:per_page => 30)
+		@products = Product.all.order("RANDOM()").paginate(:page=>params[:page],:per_page => 28)
 	end
 
 	def show
@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 	end
 
 	def search
-		@products = Product.search(params[:search]).paginate(:page=>params[:page],:per_page => 30)
+		@products = Product.search(params[:search]).paginate(:page=>params[:page],:per_page => 28)
 	end
 
 end
