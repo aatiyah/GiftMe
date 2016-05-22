@@ -44,6 +44,7 @@ $( document ).ready(function(){
 	    selectMonths: true, // Creates a dropdown to control month
 	    selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
+	$('input#input_text, textarea#textarea1').characterCounter();
     $('.modal-trigger').leanModal();
     $('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
