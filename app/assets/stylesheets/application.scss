@@ -23,10 +23,35 @@ body {
 	display: flex !important;
 	min-height: 100vh !important;
 	flex-direction: column !important;
+	background-image: url("bg2.gif");	
 }
 
 main {
 	flex: 1 0 auto !important;
+}
+
+.main-background img#img1 {
+	z-index: -1;
+	position: absolute;
+}
+
+.main-background img#img2 {
+	z-index: -1;
+	position: absolute;
+	left: 50%
+}
+
+.main-background img#img3 {
+	z-index: -1;
+	position: absolute;
+	top: 50%;
+}
+
+.main-background img#img4 {
+	z-index: -1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
 }
 
 .nav-wrapper img {
@@ -223,7 +248,7 @@ div.card-reveal p {
 }
 
 .wishlink a.next{
-    text-align:right;
+    text-align: right;
 }
 
 .wishlink{
@@ -231,13 +256,13 @@ div.card-reveal p {
 }
 
 .wishlink a {
-    display:block;
-    flex:1;
+    display: block;
+    flex: 1;
 }
 
-.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6 {
+.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6, .signin div.col.s12.m6.l6, .deviseform div.col.s12.m6.l6, .edit-profile div.col.s12.m6.l6 {
 	float: none;
-	margin-left: 25%;
+	margin-left: 25% !important;
 	text-align: left;
 }
 
@@ -271,12 +296,16 @@ div.card-reveal p {
 	font-style: normal;
 }
 
+.pagination em.current {
+	background-color: #ff9800 !important;
+}
 
 .wishlist_form div.col.s12.m6.l6 , .wishlist_show div.col.s12.m6.l6 {
     float: none;
     margin-left: 25%;
     text-align: left;
 }
+
 .pagination .disabled {
     display: inline-block;
     font-size: 1.2rem;
@@ -286,3 +315,24 @@ div.card-reveal p {
     text-align: center;
 }
 
+.user-friends div.card.white, .find-friends div.card.white {
+	padding: 20px;
+}
+
+
+
+.edit-profile div.left {
+	margin-left: 25%;
+}
+
+.edit-profile div.right {
+	margin-right: 25%;
+}
+
+.find-friends .card .card-action a, .user-friends .card .card-action a {
+	margin-right: 0px !important;
+}
+
+#search-card {
+	padding: 20px;
+}

@@ -1,17 +1,3 @@
-<div class="template">
-  <div class="row">
-    <div class="leftpanel">
-      <div class="col s12 m3 l3 orange white-text"> 
-
-        
-      </div>
-    </div> 
-
-    <div class="mainpanel">
-      <div class="col s12 m9 l9"> 
-        <h5>Feed</h5>
-        <%=  render "activities/userfeed" %>
-       </div>
-    </div>  
-  </div>
-</div>
+<%= render "status_update" %>
+<h2 class="header orange-text">Friends' Activities</h2>
+<%=  render "activities/userfeed" %>

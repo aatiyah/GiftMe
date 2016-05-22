@@ -1,0 +1,32 @@
+<div class="status-update">
+	<div class="card-panel white z-depth-1">
+		<div class="row valign-wrapper">
+			<div class="col s2">
+				<%=image_tag avatar_img(current_user), class: "circle responsive-img" %> 
+			</div>
+			<div class="col s10">
+				<%= form_for(@status) do |f| %>
+					<% if @status.errors.any? %>
+						<div id="error_explanation">
+							<h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+							<ul>
+								<% @status.errors.full_messages.each do |message| %>
+									<li><%= message %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+
+					<div class="field">
+						<%= f.label :status, class: "black-text" %><br>
+						<%= f.text_area :status, placeholder: "Share with your Gifters!" %>
+					</div>
+					<div class="actions waves-effect orange btn">
+						<%= f.submit %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
