@@ -10,14 +10,13 @@
 					</div>
 	                <div class="card-content center">
 	                    <span>
-							<p><%=link_to "#{user.first_name} #{user.last_name}", profile_path(user.id) %></p>
+							<p><%=link_to "#{user.full_name}", profile_path(user.id) %></p>
 							<p><%=user.username%></p>
-
 							<div class="card-action center">
 								<% if not Friendship.exist?(current_user,user)%>
 									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post,data: { confirm: "Are you sure?" } %>
 								<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
-									<p>You have a friend request from <%=user.first_name%> <%=user.last_name%>.</p>
+									<p>You have a friend request from <%=user.full_name%>.</p>
 									<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put, class: "header" %>
 									<%=link_to "Decline", friends_path(friend_id:user.id), :method => :delete, data: { confirm: "Are you sure?" } %>
 								<% elsif not current_user.pending_friends.where(id:user.id).empty? %>

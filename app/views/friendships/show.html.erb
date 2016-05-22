@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-content center">
                   <span>
-                    <%=link_to "#{friend.first_name} #{friend.last_name}", profile_path(friend.id) %>
+                    <%=link_to "#{friend.full_name}", profile_path(friend.id) %>
                     <p><%= friend.username %></p>
                     <p><%= friend.birthday%></p>
                   </span>
@@ -36,13 +36,13 @@
                         <%if @user == current_user %>
                             <h6 class="header light-blue-text lighten-1">You have <%=current_user.requested_friends.length%> Friend Requests.</h6>
                             <% current_user.requested_friends.each do |friend|%>
-                                <p><%= link_to "#{friend.first_name} #{friend.last_name}", profile_path(friend.id) %>
-                                <%=link_to "Accept", friends_path(friend_id:friend.id), :method => :put, class: "wave-effect orange btn" %>  
+                                <p><%= link_to "#{friend.full_name}", profile_path(friend.id) %></p>
+                                <p><%=link_to "Accept", friends_path(friend_id:friend.id), :method => :put, class: "wave-effect orange btn" %>  
                                 <%=link_to "Decline", friends_path(friend_id:friend.id), :method => :delete, class: "wave-effect orange btn" %></p>
                             <% end %>
                             <h6 class="header light-blue-text lighten-1"><%=current_user.pending_friends.length%> Pending Friend Request</h6>
                             <% current_user.pending_friends.each do |friend|%>
-                                <p><%= link_to "#{friend.first_name} #{friend.last_name}", profile_path(friend.id) %></p>
+                                <p><%= link_to "#{friend.full_name}", profile_path(friend.id) %></p>
                             <% end %>
                         <% end %>
                     </div>

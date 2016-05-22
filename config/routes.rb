@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :statuses
   devise_for :users
 
   # for root page & user specific pages
   root "test#welcome"
+  get 'home' => "test#home"
   get 'users/:id' => "test#profile", as: :profile
   get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
   get "users/:id/events" => "events#user_index", as: :user_event
   get 'users/:id/friends' => "friendships#show", as: :friend
-  get 'home' => "test#home"
 
   # Products
   get 'products' => "products#index"
@@ -36,6 +35,9 @@ Rails.application.routes.draw do
       put :remove
     end
   end
+
+  # Status
+  resources :statuses, only: :create
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,16 +11,17 @@
 
             <div class="card-content center">
                 <span class="black-text" id="usercard">
-                  <p><%= @user.first_name%> <%= @user.last_name%></p>
+                  <p><%=link_to "#{@user.full_name}", profile_path(@user.id) %></p>
                   <p><%= @user.username %></p>
                   <p><%= @user.birthday%></p>
                   <%if current_user != @user && (not Friendship.exist?(current_user, @user)) %>
-                      <%=link_to "Add Friend", friendships_path(friend_id: @user.id),:method=>:post,data: { confirm: "Are you sure?" } %>
+                      <%=link_to "Add Friend", friendships_path(friend_id: @user.id),:method=>:post, data: { confirm: "Are you sure?" } %>
                   <%elsif current_user == @user %>
                       <%=link_to "Edit User Info", edit_user_registration_path %>
                   <%end%>
+                  <br>
                 </span>
             </div>
         </div>
-    <% end  %>
+    <% end %>
 </div>
