@@ -1,15 +1,6 @@
 <div class="wishlistindex">
     <h2 class="header center orange-text">Wishlist</h2>
 
-    <div class="wishlink">
-        <% if @user.id >=2  %>
-            <a href = "/users/<%= @user.id - 1%>/wishlist">Previous User</a>
-        <% end %>
-        <% if @user.id < User.all.length %>
-            <a href = "/users/<%= @user.id + 1%>/wishlist" class ="next">Next User</a>
-        <% end %>
-    </div>
-
     <% if User.find(params[:id]) == current_user %>
         <%= link_to 'New Wishlist Item', new_wishlist_path, class: "waves-effect orange btn" %>
     <% end %>
