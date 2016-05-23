@@ -44,8 +44,6 @@ class WishlistsController < ApplicationController
         end
     end
 
-
-
     # PATCH/PUT /wishlists/1
     # PATCH/PUT /wishlists/1.json
     def update

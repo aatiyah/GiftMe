@@ -22,6 +22,8 @@
 
             <% if params[:action] != "welcome" && params[:controller]!="devise/sessions" && params[:controller]!="devise/registrations"%>
                 <%= render 'sidenav' %>
+            <% else %>
+                <%= render 'sidenavmob' %>
             <% end %>
         </div>
     </nav>
