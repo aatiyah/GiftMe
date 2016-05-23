@@ -27,6 +27,7 @@ class WishlistsController < ApplicationController
 
     # GET /wishlists/1
     def show
+        @user = @wishlist.user
     end
 
     # GET /wishlists/new

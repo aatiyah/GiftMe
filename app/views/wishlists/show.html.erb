@@ -20,10 +20,11 @@
 
             <p>
                 <strong>Event:</strong>
-                <% if current_user.events.empty? %>
-                Eventless
-                <% else %>
+
+                <% if current_user.events.empty?  %>
+                <% elsif @wishlist.event_id %>
                     <%= Event.find(@wishlist.event_id).title %>
+                <% else %>
                 <% end %>
             </p>
           <% if @wishlist.user == current_user %>
