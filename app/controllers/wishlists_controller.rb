@@ -22,6 +22,9 @@ class WishlistsController < ApplicationController
     # GET /wishlists/new
     def new
         @wishlist = Wishlist.new
+
+        @all_events = Event.all
+
     end
 
     # GET /wishlists/1/edit
@@ -32,6 +35,8 @@ class WishlistsController < ApplicationController
     # POST /wishlists.json
     def create
         @wishlist = Wishlist.new(wishlist_params)
+            #unidentified method each for 4, string
+        
 
         respond_to do |format|
             if @wishlist.save
@@ -92,6 +97,6 @@ class WishlistsController < ApplicationController
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def wishlist_params
-            params.require(:wishlist).permit(:title, :price, :info, :dibcheck, :user_id)
+            params.require(:wishlist).permit(:title, :price, :info, :dibcheck, :user_id, :event_id)
         end
 end

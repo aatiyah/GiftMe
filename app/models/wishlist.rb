@@ -5,4 +5,6 @@ class Wishlist < ActiveRecord::Base
 	validates :title, presence: true
 	belongs_to :user
 	has_many :product
+	has_many :event4wishs
+	belongs_to  :event
 end
