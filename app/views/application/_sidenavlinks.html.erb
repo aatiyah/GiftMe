@@ -19,9 +19,9 @@
 		</li>
 	</ul>
 
-	<li><%= link_to 'Events', user_event_path(id) %></li>
-	<li><%= link_to "Wishlist", user_wishlist_path(id) %></li>
-	<li><%= link_to 'Friends', friend_path(id)%></li>
+	<li><%= link_to 'My Events', user_event_path(current_user.id) %></li>
+	<li><%= link_to "My Wishlist", user_wishlist_path(current_user.id) %></li>
+	<li><%= link_to 'My Friends', friend_path(current_user.id)%></li>
 
 	<div class="hide-on-large-only">
 		<%= render 'topnavlinks' %>
