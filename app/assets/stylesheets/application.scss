@@ -86,8 +86,8 @@ main {
 	z-index: 1;
 	 /* All browsers except webkit*/
   transform: scale(2.5);
-/* http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
-  /* Webkit browsers*/
+	/* http://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
+  	/* Webkit browsers*/
   -webkit-transform: scale(2.5);
 }
 
@@ -318,8 +318,6 @@ div.card-reveal p {
 .user-friends div.card.white, .find-friends div.card.white {
 	padding: 20px;
 }
-
-
 
 .edit-profile div.left {
 	margin-left: 25%;

@@ -1,24 +1,24 @@
 <% if not current_user.nil? %>
 	<% 	if params[:id] %>
-			<% 	id = params[:id].to_i %>
+		<% 	id = params[:id].to_i %>
 	<% 	else %>
 		<% 	id = current_user.id %>
 	<% end %>
 
 	<ul class="collapsible collapsible-accordion ">
-      <li>
-        <a class="collapsible-header">Products<i class="material-icons md-8">redeem</i></a>
-        <div class="collapsible-body orange">
-            <ul>
-		      <li> <%= link_to 'Electronics', category_path(category: "electronics") %> </li>
-		      <li> <%= link_to 'Clothing', category_path(category: "clothing") %> </li>
-		      <li> <%= link_to 'Toys', category_path(category: "toys") %> </li>
-		      <li> <%= link_to 'All', products_path %> </li>
-      		</ul>
-  		</div>
-  		</li>
+		<li>
+			<a class="collapsible-header">Products <i class="material-icons">redeem</i></a>
+			<div class="collapsible-body orange">
+				<ul>
+					<li> <%= link_to 'All Products', products_path %> </li>
+					<li> <%= link_to 'Electronics', category_path(category: "electronics") %> </li>
+					<li> <%= link_to 'Clothing', category_path(category: "clothing") %> </li>
+					<li> <%= link_to 'Toys', category_path(category: "toys") %> </li>
+				</ul>
+			</div>
+		</li>
 	</ul>
-	
+
 	<li><%= link_to 'Events', user_event_path(id) %></li>
 	<li><%= link_to "Wishlist", user_wishlist_path(id) %></li>
 	<li><%= link_to 'Friends', friend_path(id)%></li>
