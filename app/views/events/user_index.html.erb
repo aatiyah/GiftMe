@@ -18,9 +18,19 @@
 						<p><%= link_to '[Read More]', event_path(event.id)%></p>
 					</div>
 					<% if event.user == current_user%>
-						<div class="card-action center">
+						<div class="card-action">
 							<%= link_to "Edit", edit_event_path(event), class: "waves-effect orange btn"%>
-							<%= link_to "Delete", event, method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect red btn" %>
+							<%= link_to "Delete", "#modal1", class: "waves-effect red btn modal-trigger" %>
+						</div>
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal center">
+							<div class="modal-content">
+									<h6>If you delete this Event, you will not be able to retrieve it again. Do you want to proceed?</h6>
+							</div>
+							<div class="modal-footer center">
+									<%= link_to "Yes", event, method: :delete, class: "waves-effect red btn left" %>
+									<%= link_to "Cancel", "", class: "modal-action modal-close waves-effect light-blue lighten-1 btn right" %>
+							</div>
 						</div>
 					<% end %>
 				</div>
