@@ -27,18 +27,23 @@
                                     <th><span class="card-title orange-text">Title</span></th>
                                     <th><span class="card-title orange-text">Price</span></th>
                                     <th><span class="card-title orange-text">Info</span></th>
+                                    <th><span class="card-title orange-text">Specifc Event?</span></th>
                                     <th><span class="card-title orange-text">Call Dibs?</span></th>
-                                    <th colspan="4"></th>
-                                </tr>
+                                    <th colspan="5"></th>
+                                    </tr>
                             </thead>
 
                             <tbody>
                                 <% for wishlist in @wishlist %>
-
                                     <tr>
                                         <td><%= wishlist.title %></td>
                                         <td><%= wishlist.price %></td>
                                         <td><%= wishlist.info %></td>
+                                        <% if wishlist.event_id  %>
+                                            <td><%= Event.find(wishlist.event_id).title %></td>
+                                        <% else %>
+                                        <td></td>
+                                        <% end %>
                                         <!-- checks to see who is looking at form -->
                                         <% if current_user == @user %>
                                             <!-- need to set remove for the current user -->
