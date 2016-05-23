@@ -11,11 +11,19 @@
 
             <p>
               <strong>Price:</strong>
-                <%= @wishlist.price %>
+                <%= @wishlist.price  %>
             </p>
             <p>
                 <strong>Info:</strong>
                 <%= @wishlist.info %>
+            </p>
+
+            <p>
+                <strong>Event:</strong>
+                <% if current_user.events.empty? %>
+                <% else %>
+                    <%= Event.find(@wishlist.event_id).title %>
+                <% end %>
             </p>
           <% if @wishlist.user == current_user %>
               <%= link_to 'Edit', edit_wishlist_path(@wishlist), class: "waves-effect orange btn" %> 

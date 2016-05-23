@@ -4,4 +4,7 @@ class Event < ActiveRecord::Base
 
 	validates :title, :date, presence: true
 	belongs_to :user
+	has_many :event4wishs
+	has_many :wishlists, :through => :event4wishs
 end
+ 

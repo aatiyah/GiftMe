@@ -15,7 +15,7 @@
 						<% end %>
 						
 					</div>
-					<div class="card-title">Notes: <%= @event.notes[0..60] %>...</div>
+					<div class="card-title">Notes: <%= truncate(@event.notes, length:20) %>...</div>
 				</div>
 				
 				<% if @event.user == current_user %>

@@ -1,43 +1,43 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+    devise_for :users
 
-  # for root page & user specific pages
-  root "test#welcome"
-  get 'home' => "test#home"
-  get 'users/:id' => "test#profile", as: :profile
-  get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
-  get "users/:id/events" => "events#user_index", as: :user_event
-  get 'users/:id/friends' => "friendships#show", as: :friend
+    # for root page & user specific pages
+    root "test#welcome"
+    get 'home' => "test#home"
+    get 'users/:id' => "test#profile", as: :profile
+    get "users/:id/wishlist" => "wishlists#user_index", as: :user_wishlist
+    get "users/:id/events" => "events#user_index", as: :user_event
+    get 'users/:id/friends' => "friendships#show", as: :friend
 
-  # Products
-  get 'products' => "products#index"
-  get 'products/search' =>  "products#search"
-  get 'products/:category' => "categories#index", as: :category
-  get 'products/:category/:id' => "products#show", as: :product
-  
+    # Products
+    get 'products' => "products#index"
+    get 'products/search' =>  "products#search"
+    get 'products/:category' => "categories#index", as: :category
+    get 'products/:category/:id' => "products#show", as: :product
 
-  # Mutual Friendship
-  get 'friendships' => "friendships#index"
-  post 'friendships' => "friendships#create"
-  put 'friends' => "friendships#update"
-  delete 'friends' => "friendships#destroy"
-  
-  # Events
-  resources :events, except: :index
 
-  # Wishlists
-  get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
+    # Mutual Friendship
+    get 'friendships' => "friendships#index"
+    post 'friendships' => "friendships#create"
+    put 'friends' => "friendships#update"
+    delete 'friends' => "friendships#destroy"
 
-  resources :wishlists, except: :index do
-    collection do
-      put :called_dibs
-      put :remove
+    # Events
+    resources :events, except: :index
+
+    # Wishlists
+    get 'wishlists/add/:id' => "wishlists#add", as: :addtowishlist
+
+    resources :wishlists, except: :index do
+        collection do
+              put :called_dibs
+              put :remove
+        end
     end
-  end
 
-  # Status
-  resources :statuses, only: :create
+    # Status
+    resources :statuses, only: :create
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
