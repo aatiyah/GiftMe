@@ -6,7 +6,7 @@
     <% end %>
 
 
-    <div class="col s12 m4">
+    <div class="col s6 m4 center">
         <div class="card">
             <div class="card-content">
                 <%= form_tag called_dibs_wishlists_path, method: :put do%>
@@ -18,7 +18,7 @@
                                     <th><span class="card-title orange-text">Title</span></th>
                                     <th><span class="card-title orange-text">Price</span></th>
                                     <th><span class="card-title orange-text">Info</span></th>
-                                    <th><span class="card-title orange-text">Specifc Event?</span></th>
+                                    <th><span class="card-title orange-text">Specific Event?</span></th>
                                     <th><span class="card-title orange-text">Call Dibs?</span></th>
                                     <th colspan="5"></th>
                                     </tr>
@@ -29,7 +29,14 @@
                                     <tr>
                                         <td><%= wishlist.title %></td>
                                         <td><%= wishlist.price %></td>
-                                        <td><%= wishlist.info %></td>
+                                        <% if wishlist.info.length < 20 %>
+                                            <td><%= truncate(wishlist.info, length:20) %></td>
+                                        <%else %>
+                                            <td><%= truncate(wishlist.info, length:20) %><p><%= link_to '[Read More]', wishlist_path(wishlist.id)%></p></td>
+                                        <% end %>
+                                        
+
+
                                         <% if wishlist.event_id  %>
                                             <td><%= Event.find(wishlist.event_id).title %></td>
                                         <% else %>
