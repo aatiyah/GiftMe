@@ -7,7 +7,14 @@
 				<div class="card-content">
 					<div class="card-title orange-text">Title: <%= @event.title%></div>
 					<div class="card-title">Date: <%= @event.date%></div>
-					<div class="card-title">Annual: <%= @event.annual%></div>
+					<div class="card-title">
+						<% if @event.annual == "true" %>
+							<%= "Annual: Yes" %>
+						<% else %>
+							<%= "Annual: No" %>
+						<% end %>
+						
+					</div>
 					<div class="card-title">Notes: <%= @event.notes[0..60] %>...</div>
 				</div>
 				

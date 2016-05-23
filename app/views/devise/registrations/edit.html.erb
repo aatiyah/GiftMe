@@ -1,5 +1,5 @@
 <div class="edit-profile">
-    <h2 class="header center orange-text">Edit <%= resource_name.to_s.humanize %></h2>
+    <h2 class="header center orange-text">Edit Profile Info.</h2>
     <div class="row">   
         <div class="col s12 m6 l6">
             <div class="card-panel white">
@@ -57,7 +57,7 @@
     </div>  
 
     <div class="right">
-        <%= button_to "Cancel my account", registration_path(resource_name), class: "wave-effect orange btn", data: { confirm: "Are you sure?" }, method: :delete %>
+        <%= button_to "Cancel my account", registration_path(resource_name), class: "wave-effect red btn", data: { confirm: "Are you sure? You will not be able to retrieve any information associated with your account if you proceed." }, method: :delete %>
     </div>
     <div class="left">
         <%= link_to "Back", :back, class: "wave-effect orange btn" %>
