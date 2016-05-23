@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get 'products' => "products#index"
     get 'products/search' =>  "products#search"
     get 'products/:category' => "categories#index", as: :category
-    get 'products/:category/:id' => "products#show", as: :product
 
 
     # Mutual Friendship
