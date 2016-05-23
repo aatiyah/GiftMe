@@ -1,5 +1,14 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :event_owner, only: [:edit, :update, :destroy]
+
+  # Authorization
+  def event_owner
+    unless @event.user == current_user
+      flash[:notice] = 'Access denied as you are not owner of this Event.'
+      redirect_to @event
+     end
+  end
 
   def show
     @user = @event.user
