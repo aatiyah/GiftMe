@@ -8,8 +8,7 @@
 				  <%= devise_error_messages! %>
 
 				  <div class="field">
-				    <%= f.label :email %><br />
-				    <%= f.label "Your email address will be used to pull profile image from Gravatar service." %>
+				    <%= f.label :email, "Your email address will be used to pull profile image from "%><%= link_to 'Gravatar', 'https://en.gravatar.com', target: "_blank"%><br />
 				    <%= f.email_field :email, autofocus: true %>
 				  </div>
 
