@@ -29,14 +29,7 @@
                                     <tr>
                                         <td><%= wishlist.title %></td>
                                         <td><%= wishlist.price %></td>
-                                        <% if wishlist.info.length < 20 %>
-                                            <td><%= truncate(wishlist.info, length:20) %></td>
-                                        <%else %>
-                                            <td><%= truncate(wishlist.info, length:20) %><p><%= link_to '[Read More]', wishlist_path(wishlist.id)%></p></td>
-                                        <% end %>
-                                        
-
-
+                                        <td><%= truncate(wishlist.info, length:20) %><p><%= link_to '[Read More]', wishlist_path(wishlist.id)%></p></td>
                                         <% if wishlist.event_id  %>
                                             <td><%= Event.find(wishlist.event_id).title %></td>
                                         <% else %>
