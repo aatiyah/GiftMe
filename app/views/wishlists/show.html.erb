@@ -15,12 +15,13 @@
             </p>
             <p>
                 <strong>Info:</strong>
-                <%= @wishlist.info %>
+                <%= truncate(@wishlist.info, length:20)%>...
             </p>
 
             <p>
                 <strong>Event:</strong>
                 <% if current_user.events.empty? %>
+                Eventless
                 <% else %>
                     <%= Event.find(@wishlist.event_id).title %>
                 <% end %>

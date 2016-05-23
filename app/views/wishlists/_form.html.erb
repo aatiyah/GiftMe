@@ -42,7 +42,7 @@
             <% if current_user.events.empty? %>
                No Events yet. <%=  link_to 'Create An Event?', new_event_path %> 
             <% else %>
-                <%= f.label "SelectEvent" %><br>
+                <%= f.label "Select Event" %><br>
                 <!-- , prompt "something to set at 0 in case we want that variable" -->
                 <%= f.select(:event_id,current_user.events) do %>
                     <% current_user.events.pluck(:title, :id).each do |c| %>

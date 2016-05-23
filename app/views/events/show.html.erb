@@ -8,7 +8,7 @@
 					<div class="card-title orange-text">Title: <%= @event.title%></div>
 					<div class="card-title">Date: <%= @event.date%></div>
 					<div class="card-title">
-						<% if @event.annual == "true" %>
+						<% if @event.annual == true %>
 							<%= "Annual: Yes" %>
 						<% else %>
 							<%= "Annual: No" %>
