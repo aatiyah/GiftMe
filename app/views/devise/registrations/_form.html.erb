@@ -8,8 +8,21 @@
 				  <%= devise_error_messages! %>
 
 				  <div class="field">
-				    <%= f.label :email, "Your email address will be used to pull profile image from "%><%= link_to 'Gravatar', 'https://en.gravatar.com', target: "_blank"%><br />
-				    <%= f.email_field :email, autofocus: true %>
+				    <%= f.label :email %><br/>
+				    <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :password %>
+				    <% if @minimum_password_length %>
+				    <em>(<%= @minimum_password_length %> characters minimum)</em>
+				    <% end %><br />
+				    <%= f.password_field :password, autocomplete: "off" %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :password_confirmation %><br />
+				    <%= f.password_field :password_confirmation, autocomplete: "off" %>
 				  </div>
 
 				  <div class="field">
@@ -28,20 +41,8 @@
 				  </div>
 
 				  <div class="field">
-				    <strong>Your Birthday: </strong><%= f.date_field :birthday, class: "datepicker" %> 
-				  </div>
-
-				  <div class="field">
-				    <%= f.label :password %>
-				    <% if @minimum_password_length %>
-				    <em>(<%= @minimum_password_length %> characters minimum)</em>
-				    <% end %><br />
-				    <%= f.password_field :password, autocomplete: "off" %>
-				  </div>
-
-				  <div class="field">
-				    <%= f.label :password_confirmation %><br />
-				    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+				  	<%= f.label :birthday %>
+				    <%= f.date_field :birthday, placeholder:"Birthday", class: "datepicker" %> 
 				  </div>
 
 				  <div class="actions center">
