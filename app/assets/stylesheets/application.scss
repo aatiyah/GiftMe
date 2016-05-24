@@ -212,9 +212,16 @@ span#usercard a {
 	color: #03a9f4;
 }
 	
-div.usercardimage img {
-	margin-top: 20px;
-	height: 150px
+div.usercardimage.center {
+	padding-top: 20px;
+}
+
+div.usercardimage a.image-link {
+	height:150px;
+}
+
+div.usercardimage img#profile-pic {
+	height:95%;
 }
 
 div#usercard.card {
