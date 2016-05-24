@@ -24,9 +24,9 @@
                             <tbody>
                                 <% for wishlist in @wishlist %>
                                     <tr>
-                                        <td><%= wishlist.title[0..20] %>...
+                                        <td><%= wishlist.title[0..20] %><%= link_to '...More', wishlist %>
                                             <% if current_user.id == @user.id %>
-                                                <%= link_to 'Show', wishlist %>/<%= link_to 'Edit', edit_wishlist_path(wishlist) %>/<%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                /<%= link_to 'Edit', edit_wishlist_path(wishlist) %>/<%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %>
                                             <% end %> 
                                         </td>
                                         <td><%= wishlist.price %></td>
@@ -77,7 +77,7 @@
                     </table>
                 </div>
                 <br>
-                <button class="waves-effect waves-light light-blue lighten-1 btn" style = "float:right;"><%= submit_tag "DIBS!" %></button>
+                <div class="dibsbtn right white orange-text"><span>Want to buy <%= @user.first_name %> the checked gift/s? Call DIBS! on them now! </span> ..<button class="waves-effect waves-light light-blue lighten-1 btn" style = "float:right;"><%= submit_tag "DIBS!" %></button></div>
             
     </div>
 </div>
