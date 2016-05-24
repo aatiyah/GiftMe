@@ -249,14 +249,28 @@ div.card-reveal p {
     flex: 1;
 }
 
-.eventform div.col.s12.m6.l6, .eventshow div.col.s12.m6.l6, .signin div.col.s12.m6.l6, .deviseform div.col.s12.m6.l6, .edit-profile div.col.s12.m6.l6 {
+.signin div.col.s12.m6.l6, .deviseform div.col.s12.m6.l6, .edit-profile div.col.s12.m6.l6 {
 	float: none;
 	margin-left: 25% !important;
 	text-align: left;
 }
 
+.eventshow div.col.s12.m6.l6, .eventedit div.col.s12.m6.l6, .eventform div.col.s12.m6.l6 {
+	float: none;
+	display: inline-block;
+}
+
+.friendprofile div.col.s12.m4.l4 {
+	display: inline-block;
+	padding: 5px;
+}
+
 .userevents div.row {
 	margin-top: 20px;
+}
+
+.userevents div.card-action.center a {
+	margin: 10px;
 }
 
 .pagination a {

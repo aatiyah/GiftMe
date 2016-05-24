@@ -18,7 +18,7 @@
 						<p><%= link_to '[Read More]', event_path(event.id)%></p>
 					</div>
 					<% if event.user == current_user%>
-						<div class="card-action">
+						<div class="card-action center">
 							<%= link_to "Edit", edit_event_path(event), class: "waves-effect orange btn"%>
 							<%= link_to "Delete", "#modal1", class: "waves-effect red btn modal-trigger" %>
 						</div>
