@@ -59,7 +59,7 @@
                                                 <% else %>
                                                     <% if wishlist.dibs_user != nil %>
                                                     <!-- this line will show who has it dibbed -->
-                                                        This spot has been taken by <%= User.find(wishlist.dibs_user).username %>
+                                                        <%=link_to (image_tag avatar_img(User.find(wishlist.dibs_user)), class: "circle responsive-img", id: "dibs-pic", title: User.find(wishlist.dibs_user).full_name), profile_path(wishlist.dibs_user) %>
                                                     <!-- once i figure out how to set it -->
                                                     <% else %>
                                                         <%= check_box_tag "dibcheck[]", wishlist.id %>
