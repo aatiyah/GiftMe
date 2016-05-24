@@ -6,6 +6,8 @@
 	<% end %>
 
 	<ul class="collapsible collapsible-accordion ">
+		<li><%= link_to 'My Friends', friend_path(current_user.id)%></li>
+
 		<li>
 			<a class="collapsible-header">Products <i class="material-icons">redeem</i></a>
 			<div class="collapsible-body orange">
@@ -21,7 +23,6 @@
 
 	<li><%= link_to 'My Events', user_event_path(current_user.id) %></li>
 	<li><%= link_to "My Wishlist", user_wishlist_path(current_user.id) %></li>
-	<li><%= link_to 'My Friends', friend_path(current_user.id)%></li>
 
 	<div class="hide-on-large-only">
 		<%= render 'topnavlinks' %>
