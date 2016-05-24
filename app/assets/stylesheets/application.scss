@@ -147,7 +147,7 @@ main {
 nav#navtop.top-nav.light-blue.lighten-1 {
     height: 70px;
     box-shadow: none;
-	margin-left: 240px;
+	margin-left: 300px;
 }
 
 .side-nav.fixed a {
@@ -155,12 +155,12 @@ nav#navtop.top-nav.light-blue.lighten-1 {
 }
 
 #main-section {
-		margin-left: 260px;
+		margin-left: 320px;
 		margin-right: 20px;
 	}
 
 #mainfooter {
-	margin-left: 230px;
+	margin-left: 290px;
 }
 
 @media screen and (max-width: 992px){
@@ -380,4 +380,12 @@ div#slidercaption {
 #dibs-pic {
 	height: 40px;
 	width: 40px;
+}
+
+.eventshow div.card-title {
+	padding: 10px;
+}
+
+.side-nav {
+	width: 300px;
 }
