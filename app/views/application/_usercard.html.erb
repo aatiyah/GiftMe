@@ -7,6 +7,7 @@
         <div class="card" id="usercard">
             <div class="usercardimage center">
                 <%=link_to (image_tag avatar_img(@user), class: "circle responsive-img", id: "profile-pic", title:"#{@user.full_name}"), profile_path(@user.id), class: "image-link" %> 
+
             </div>
 
             <div class="card-content center">

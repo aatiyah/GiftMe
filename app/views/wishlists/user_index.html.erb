@@ -8,7 +8,6 @@
 
     <div class="col s6 m4 center">
                 <%= form_tag called_dibs_wishlists_path, method: :put do%>
-
                     <div class ="check_box">
                         <table>
                             <thead>
@@ -43,7 +42,8 @@
                                             <% if current_user == @user %>
                                                 <!-- need to set remove for the current user -->
                                                 <% if wishlist.dibs_user != nil %>
-                                                    This spot has been taken by <%= User.find(wishlist.dibs_user).username %>  <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %>
+                                                   <%=link_to (image_tag avatar_img(User.find(wishlist.dibs_user)), class: "circle responsive-img", id: "dibs-pic", title: User.find(wishlist.dibs_user).full_name), profile_path(wishlist.dibs_user) %>
+                                                   <%= link_to "Remove", remove_wishlists_path(id: wishlist.id), method: :put %>
                                                 <% else %>
                                                     Get your friends to call dibs!
                                                 <% end %>
