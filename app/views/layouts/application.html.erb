@@ -37,6 +37,22 @@
                       });
                     </script>
                 </div>
+            <% elsif flash[:error] %>
+                <div class="notice">
+                    <script>
+                      $(function() {
+                        Materialize.toast('<%= flash[:error] %>', 4000, 'rounded');
+                      });
+                    </script>
+                </div>
+            <% elsif flash[:alert] %>
+                <div class="notice">
+                    <script>
+                      $(function() {
+                        Materialize.toast('<%= flash[:alert] %>', 4000, 'rounded');
+                      });
+                    </script>
+                </div>
             <% end %>
 
             <%= yield %>
