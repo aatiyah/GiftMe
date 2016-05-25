@@ -381,7 +381,7 @@ div#slidercaption {
 	width: 40px;
 }
 
-form.edit_event {
+form.edit_event, form.new_event {
 	text-align: left;
 }
 
@@ -402,7 +402,7 @@ form.edit_event {
 }
 
 @media screen and (max-width: 600px){
-	.signin div.col.s12.m6.l6, .signup div.col.s12.m6.l6 {
+	.signin div.col.s12.m6.l6, .signup div.col.s12.m6.l6, .wishlist_form div.col.s12.m6.l6 {
 		margin-left: 0px !important;
 	}
 }
