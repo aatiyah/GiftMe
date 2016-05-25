@@ -30,11 +30,12 @@
                                         </td>
                                         <td><%= wishlist.price %></td>
                                         <td>
-                                            <% if wishlist.event_id  %>
+                                            <% if current_user.events.empty?  %>
+                                            <% elsif wishlist.event_id %>
                                                 <%= Event.find(wishlist.event_id).title %>
                                             <% else %>
-                                                <br>
                                             <% end %>
+                                                <br>
                                         </td>
                                         
                                         <!-- checks to see who is looking at form -->
