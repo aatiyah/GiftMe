@@ -6,7 +6,7 @@
 			<div class="col s12 m3 l2">
 	            <div class="card">
 	                <div class="card-image">
-						<%= image_tag avatar_img(user), class:"circle responsive-img" %>
+	                	<%=link_to (image_tag avatar_img(user), class: "circle responsive-img", id: "profile-pic", title:"#{user.full_name}"), profile_path(user.id), class: "image-link" %> 
 					</div>
 	                <div class="card-content center">
 	                    <span>
