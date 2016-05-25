@@ -14,7 +14,7 @@
 							<p><%=user.username%></p>
 							<div class="card-action center">
 								<% if not Friendship.exist?(current_user,user)%>
-									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post,data: { confirm: "Are you sure?" } %>
+									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post %>
 								<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
 									<p>You have a friend request from <%=user.full_name%>.</p>
 									<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put, class: "header" %>
