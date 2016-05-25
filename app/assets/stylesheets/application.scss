@@ -147,7 +147,7 @@ main {
 nav#navtop.top-nav.light-blue.lighten-1 {
     height: 70px;
     box-shadow: none;
-	margin-left: 240px;
+	margin-left: 300px;
 }
 
 .side-nav.fixed a {
@@ -155,12 +155,12 @@ nav#navtop.top-nav.light-blue.lighten-1 {
 }
 
 #main-section {
-		margin-left: 260px;
+		margin-left: 320px;
 		margin-right: 20px;
 	}
 
 #mainfooter {
-	margin-left: 230px;
+	margin-left: 290px;
 }
 
 @media screen and (max-width: 992px){
@@ -360,13 +360,23 @@ div.card-reveal p {
 
 .row.friendprofile {
 	margin-top: 20px;
-	padding-left: 12.5%;
 }
 
 table {
 	background-color: white;
 }
-#dibs-pic{
+
+div#welcomepage.col.s10.m10.l10 {
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	margin-top: 20px;
+}
+
+div#slidercaption {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#dibs-pic {
 	height: 40px;
 	width: 40px;
 }
@@ -378,3 +388,21 @@ form.edit_event {
 .actions.center.waves-effect.orange.btn {
 	float: none;
 }
+
+.eventshow div.card-title {
+	padding: 10px;
+}
+
+.side-nav {
+	width: 300px;
+}
+
+.input-field .prefix.active {
+	color: #ff9800;
+}
+
+.row.friendprofile.center {
+	padding-left: 0px;
+}
+
+
