@@ -2,35 +2,34 @@
   <h2 class="header center orange-text">Wishlist</h2>
     <div class="row">
       <div class="col s12 m6 l6">
-        <div class="card-panel white">
-          <span class="black-text">
+        <div class="card white">
+          <span class="card-content black-text center" >
             <p>
-              <strong>Title:</strong>
-                <%= @wishlist.title %>
-            </p>
-
-            <p>
-              <strong>Price:</strong>
-                <%= @wishlist.price  %>
+              <div class="card-title orange-text">Title: <%= @wishlist.title %> </div>
             </p>
             <p>
-                <strong>Info:</strong>
-                <%= truncate(@wishlist.info, length:20)%>...
+              <div class="card-title">Price: <%= @wishlist.price  %> </div>
             </p>
-
             <p>
-                <strong>Event:</strong>
-
-                <% if current_user.events.empty?  %>
-                <% elsif @wishlist.event_id %>
-                    <%= Event.find(@wishlist.event_id).title %>
-                <% else %>
-                <% end %>
+                <div class="card-title">Info: <%= @wishlist.info %></div>
             </p>
+            <p>
+                <div class="card-title">Event: 
+                  <% if current_user.events.empty?  %>
+                  <% elsif @wishlist.event_id %>
+                      <%= Event.find(@wishlist.event_id).title %>
+                  <% else %>
+                  <% end %>
+                </div>
+            </p>
+            <div class = "card-action">
           <% if @wishlist.user == current_user %>
               <%= link_to 'Edit', edit_wishlist_path(@wishlist), class: "waves-effect orange btn" %> 
-              <%= link_to 'Back', user_wishlist_path(current_user.id) , class: "waves-effect orange btn" %>
+              <%= link_to 'Back', :back, class: "waves-effect orange btn" %>
+          <% else %>
+          <%= link_to "Back", :back, class: "waves-effect orange btn"%>
           <% end %>
+          </div>
   			</span>
   		</div>
   	</div>
