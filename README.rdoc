@@ -1,29 +1,5 @@
-== GiftMe
+== UGiftMe
 
-GiftMe
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We are a team of Coding Bootcamp-ers working on this project to showcase what we have learned during the past 8 weeks. Topics learned: Ruby on Rails, HTML, CSS, JavaScript, APIs, Databases, Materialize, Git, GitHub, and Ruby Gems.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+We built this app using RoR and implemented Material design for the Front-end.

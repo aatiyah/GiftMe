@@ -30,11 +30,13 @@
                                         </td>
                                         <td><%= wishlist.price %></td>
                                         <td>
-                                            <% if wishlist.event_id  %>
-                                                <%= Event.find(wishlist.event_id).title %>
+                                            <% if wishlist.event_id %>
+                                                <% if Event.exists?(wishlist.event_id) %>
+                                                    <%= Event.find(wishlist.event_id).title %>
+                                                <% end %>
                                             <% else %>
-                                                <br>
                                             <% end %>
+                                                <br>
                                         </td>
                                         
                                         <!-- checks to see who is looking at form -->
