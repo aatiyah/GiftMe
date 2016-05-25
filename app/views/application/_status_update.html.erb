@@ -2,7 +2,7 @@
 	<div class="card-panel white z-depth-1">
 		<div class="row valign-wrapper">
 			<div class="col s6">
-				<%=link_to (image_tag avatar_img(current_user), class: "circle responsive-img", id: "profile-pic", title:"Gravatar"), "https://en.gravatar.com/emails", class: "image-link" %> 
+				<%=link_to (image_tag avatar_img(current_user), class: "circle responsive-img", id: "profile-pic", title:"Gravatar"), "https://en.gravatar.com/emails", class: "image-link", target: "_blank" %> 
 			</div>
 			<div class="col s10">
 				<%= form_for(@status) do |f| %>
