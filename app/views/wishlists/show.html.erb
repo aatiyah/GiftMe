@@ -15,7 +15,7 @@
             </p>
             <p>
                 <div class="card-title">Event: 
-                  <% if wishlist.event_id %>
+                  <% if @wishlist.event_id %>
                       <% if Event.exists?(@wishlist.event_id) %>
                           <%= Event.find(@wishlist.event_id).title %>
                       <% end %>
