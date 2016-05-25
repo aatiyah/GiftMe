@@ -398,3 +398,12 @@ div#slidercaption {
 	padding-left: 0px;
 }
 
+@media screen and (max-width: 600px){
+	.signin div.col.s12.m6.l6, .signup div.col.s12.m6.l6 {
+		margin-left: 0px !important;
+	}
+}
+
+div#names li {
+	line-height: 230%;
+}
