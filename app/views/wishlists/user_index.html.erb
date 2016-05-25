@@ -50,7 +50,7 @@
                                                     Get your friends to call dibs!
                                                 <% end %>
 
-                                            <% elsif not Friendship.exist?(current_user,@user)%>
+                                            <% elsif not @user.friends.exists?(current_user.id)  %>
                                                 You are not friends with this user yet.
                                             <% else %>
                                                 <!-- goes into who has the check-->
