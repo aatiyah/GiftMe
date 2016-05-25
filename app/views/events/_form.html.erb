@@ -3,7 +3,7 @@
 	  <div class="col s12 m6 l6">
 		<div class="card-panel white">
 		  <span class="black-text">
-			<div class="event_form">
+			<div class="event_form center">
 			  <%= form_for(@event) do |f| %>
 				<% if @event.errors.any? %>
 				  <div id="error_explanation">
@@ -39,8 +39,10 @@
 				<div>
 				  <%= f.hidden_field :user_id, value: current_user.id %>
 				</div>
-				<div class="actions waves-effect orange btn">
+				<div class="center">
+				<div class="actions center waves-effect orange btn">
 				  <%= f.submit %>
+				</div>
 				</div>
 			  <% end %>
 			</div>

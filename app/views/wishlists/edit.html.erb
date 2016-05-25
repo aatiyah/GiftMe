@@ -2,6 +2,6 @@
 	<h2 class="header center orange-text"> Wishlist </h2>
 
 	<%= render 'form' %>
-	<%= link_to 'Show', user_wishlist_path(current_user.id) , class: "waves-effect orange btn" %> 
+	<%= link_to 'Show', @wishlist , class: "waves-effect orange btn" %> 
 	<%= link_to 'Back', :back , class: "waves-effect orange btn" %>
 </div>
