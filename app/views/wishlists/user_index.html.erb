@@ -1,5 +1,8 @@
 <div class="wishlistindex">
     <h2 class="header center orange-text">Wishlist</h2>
+    <% if current_user != @user %>
+        <%= render "friendprofile" %>
+    <% end %>
 
     <% if User.find(params[:id]) == current_user %>
         <%= link_to 'New Wishlist Item', new_wishlist_path, class: "waves-effect orange btn" %>

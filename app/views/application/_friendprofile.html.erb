@@ -1,9 +1,9 @@
 <div class="row friendprofile center">
 	<div class="col s12 m4 l4">
-		<%= link_to 'Events', user_event_path(params[:id]), class: "waves-effect light-blue lighten-1 btn" %>
+		<%= link_to 'Events', user_event_path(@user.id), class: "waves-effect light-blue lighten-1 btn" %>
 	</div>
 	<div class="col s12 m4 l4">
-		<%= link_to "Wishlist", user_wishlist_path(params[:id]), class: "waves-effect light-blue lighten-1 btn" %>
+		<%= link_to "Wishlist", user_wishlist_path(@user.id), class: "waves-effect light-blue lighten-1 btn" %>
 	</div>
 	<div class="col s12 m4 l4">
 		<%= link_to 'Friends', friend_path(params[:id]), class: "waves-effect light-blue lighten-1 btn" %>

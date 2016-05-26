@@ -1,5 +1,8 @@
 <div class="user-friends">
 	<h2 class="header center orange-text"><%=@user.first_name%>'s Friends</h2>
+    <% if current_user != @user %>
+        <%= render "friendprofile" %>
+    <% end %>
 
     <div class="row" id="friendcard">
         <% @user.friends.order(created_at: :desc).each do |friend|%>

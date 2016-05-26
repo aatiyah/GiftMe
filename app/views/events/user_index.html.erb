@@ -1,5 +1,8 @@
 <div class="userevents">
 	<h2 class="header center orange-text">Events</h2>
+	<% if current_user != @user %>
+		<%= render "friendprofile" %>
+	<% end %>
 
 	<% if User.find(params[:id]) == current_user %>
 		<%= link_to 'New Event', new_event_path, class: "waves-effect light-blue lighten-1 btn", id: "newevent-btn" %>
