@@ -26,10 +26,8 @@
             <div class = "card-action">
           <% if @wishlist.user == current_user %>
               <%= link_to 'Edit', edit_wishlist_path(@wishlist), class: "waves-effect orange btn" %> 
-              <%= link_to 'Back', :back, class: "waves-effect orange btn" %>
-          <% else %>
-          <%= link_to "Back", user_wishlist_path(@wishlist.user.id), class: "waves-effect orange btn"%>
           <% end %>
+          <%= link_to "Back", user_wishlist_path(@wishlist.user.id), class: "waves-effect orange btn"%>
           </div>
   			</span>
   		</div>
