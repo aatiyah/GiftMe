@@ -1,4 +1,5 @@
 <div class="find-friends">
+	<% n = 0; %>
 	<h2 class="header center orange-text">Add Friend</h2>
 	<div class="row" id="friendcard">
 	<% @users.each do |user| %>
@@ -14,7 +15,7 @@
 							<p><%=user.username%></p>
 							<div class="card-action center">
 								<% if not Friendship.exist?(current_user,user)%>
-									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post,data: { confirm: "Are you sure?" } %>
+									<%= link_to "Add", "#modal#{n}", class: "modal-trigger" %>
 								<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
 									<p>You have a friend request from <%=user.full_name%>.</p>
 									<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put, class: "header" %>
@@ -25,7 +26,19 @@
 									<p class="white-text">Friend</p>
 								<% end %>
 							</div>
+
+							<!-- Modal Structure -->
+							<div id="modal<%=n%>" class="modal center">
+								<div class="modal-content">
+										<h6>Add <%=user.username%> to your Friend List?</h6>
+								</div>
+								<div class="modal-footer center">
+									<%= link_to "Yes", friendships_path(friend_id: user.id), :method=>:post, class: "waves-effect light-blue lighten-1 btn left" %>
+									<%= link_to "Cancel", "", class: "modal-action modal-close waves-effect orange btn right" %>
+								</div>
+							</div>
 						</span>
+						<% n += 1; %>
 					</div>
 				</div>
 			</div>
