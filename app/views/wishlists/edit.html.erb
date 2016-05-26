@@ -3,5 +3,5 @@
 
 	<%= render 'form' %>
 	<%= link_to 'Show', @wishlist , class: "waves-effect orange btn" %> 
-	<%= link_to 'Back', :back , class: "waves-effect orange btn" %>
+	<%= link_to 'Back', user_wishlist_path(current_user.id), class: "waves-effect orange btn" %>
 </div>

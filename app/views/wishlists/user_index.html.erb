@@ -50,7 +50,7 @@
                                                     Get your friends to call dibs!
                                                 <% end %>
 
-                                            <% elsif not Friendship.exist?(current_user,@user)%>
+                                            <% elsif not @user.friends.exists?(current_user.id)  %>
                                                 You are not friends with this user yet.
                                             <% else %>
                                                 <!-- goes into who has the check-->
@@ -79,7 +79,7 @@
                     </table>
                 </div>
                 <br>
-                <div class="dibsbtn right white orange-text"><span>Want to buy <%= @user.first_name %> the checked gift/s? Call DIBS! on them now! </span> ..<button class="waves-effect waves-light light-blue lighten-1 btn" style = "float:right;"><%= submit_tag "DIBS!" %></button></div>
+                <div class="dibsbtn right white orange-text"><span>Want to buy <%= @user.first_name %> the checked gift(s)? Call DIBS! on them now! </span> ..<button class="waves-effect waves-light light-blue lighten-1 btn" style = "float:right;"><%= submit_tag "DIBS!" %></button></div>
             
     </div>
 </div>
