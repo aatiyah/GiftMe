@@ -2,7 +2,7 @@
 	<h2 class="header center orange-text"><%=@user.first_name%>'s Friends</h2>
 
     <div class="row" id="friendcard">
-        <% @user.friends.each do |friend|%>
+        <% @user.friends.order(created_at: :desc).each do |friend|%>
             <div class="col s12 m3 l2">
               <div class="card">
                 <div class="card-image">
