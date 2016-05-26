@@ -1,5 +1,5 @@
 <div class="userevents">
-	<h2 class="header center orange-text">Events</h2>
+	<h2 class="header center orange-text"><%= @user.first_name %>'s Events</h2>
 	<% if current_user != @user %>
 		<%= render "friendprofile" %>
 	<% end %>

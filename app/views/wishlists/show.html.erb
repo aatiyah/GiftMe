@@ -1,5 +1,5 @@
 <div class = "wishlist_show center">
-  <h2 class="header center orange-text">Wishlist</h2>
+  <h2 class="header center orange-text"><%= @user.first_name %>'s Wishlist</h2>
   <% if current_user != @user %>
     <%= render "friendprofile" %>
   <% end %>

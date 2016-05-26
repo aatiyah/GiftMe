@@ -3,7 +3,7 @@
 		<%= render "status_update" %>
 	<% end %>
 
-	<h2 class="header orange-text center"><%= @user.full_name %>'s Profile</h2> 
+	<h2 class="header orange-text center"><%= @user.first_name %>'s Profile</h2> 
 	<% if current_user != @user %>
 		<%= render "friendprofile" %>
 	<% end %>
