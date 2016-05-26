@@ -6,7 +6,7 @@
 			<div class="col s12 m3 l2">
 	            <div class="card">
 	                <div class="card-image">
-						<%= image_tag avatar_img(user), class:"circle responsive-img" %>
+	                	<%=link_to (image_tag avatar_img(user), class: "circle responsive-img", id: "profile-pic", title:"#{user.full_name}"), profile_path(user.id), class: "image-link" %> 
 					</div>
 	                <div class="card-content center">
 	                    <span>
@@ -14,7 +14,7 @@
 							<p><%=user.username%></p>
 							<div class="card-action center">
 								<% if not Friendship.exist?(current_user,user)%>
-									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post,data: { confirm: "Are you sure?" } %>
+									<%= link_to "Add", friendships_path(friend_id: user.id), :method=>:post %>
 								<% elsif not current_user.requested_friends.where(id:user.id).empty? %>
 									<p>You have a friend request from <%=user.full_name%>.</p>
 									<%=link_to "Accept", friends_path(friend_id:user.id), :method => :put, class: "header" %>
