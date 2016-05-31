@@ -2,4 +2,4 @@
 
 We are a team of Coding Bootcamp-ers working on this project to showcase what we have learned during the past 8 weeks. Topics learned: Ruby on Rails, HTML, CSS, JavaScript, APIs, Databases, Materialize, Git, GitHub, and Ruby Gems.
 
-We built this app using RoR and implemented Material design for the Front-end.
+We built this app using RoR, and Material design for the Front-end.
