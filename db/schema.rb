@@ -37,14 +37,6 @@ ActiveRecord::Schema.define(version: 20160523182745) do
     t.string   "slug"
   end
 
-  create_table "event4wishes", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "wish_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "wishlist_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.date     "date"
@@ -104,12 +96,12 @@ ActiveRecord::Schema.define(version: 20160523182745) do
 
   create_table "wishlists", force: :cascade do |t|
     t.string   "title"
-    t.integer  "price"
+    t.decimal  "price",      precision: 10, scale: 2
     t.text     "info"
     t.boolean  "dibcheck"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "dibs_user"
     t.integer  "event_id"
   end
