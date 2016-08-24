@@ -11,7 +11,7 @@
               <div class="card-title orange-text">Title: <%= @wishlist.title %> </div>
             </p>
             <p>
-              <div class="card-title">Price: <%= @wishlist.price  %> </div>
+              <div class="card-title">Price: <%= number_to_currency(@wishlist.price) %> </div>
             </p>
             <p>
                 <div class="card-title">Info: <%= @wishlist.info %></div>
