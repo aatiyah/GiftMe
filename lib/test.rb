@@ -24,7 +24,7 @@ url.each do |u|
       #result.push({title: title, price: price, category_id: 1})
       # create an array of results to poulate the database later
   
- img_url = "www.toysrus.com/" + product.css(".swatchProdImg").map{ |i| i['src'] }.join
+      img_url = "www.toysrus.com/" + product.css(".swatchProdImg").map{ |i| i['src'] }.join
       # ref:http://stackoverflow.com/questions/5813446/extract-img-tags-in-ruby
       # tried using .attr method, but will return description results
       result.push({title: title, price: price, category_id: 1,img_url: img_url})

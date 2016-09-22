@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
 	def index
-		@users = User.all
+		@users = User.all.order("creatd_at DESC")
 	end
 
 	def show
